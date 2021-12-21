@@ -1,6 +1,8 @@
 import Head from 'next/head'
+import { connect } from 'react-redux'
 
-export default function Home() {
+function Home(props) {
+  console.log("props", props)
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
       <Head>
@@ -80,3 +82,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default connect(state => state)(Home)
