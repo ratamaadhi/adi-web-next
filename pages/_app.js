@@ -1,4 +1,4 @@
-import "tailwindcss/tailwind.css";
+import "../styles/global.css";
 import Head from "next/head";
 import App from "next/app";
 import { getStrapiMedia } from "../lib/media";
