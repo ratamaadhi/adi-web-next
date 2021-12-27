@@ -6,6 +6,7 @@ import { fetchAPI } from "../lib/api";
 import configureStore from "../redux/store";
 import { Provider } from "react-redux";
 import { GlobalContext } from "../context/globalContext";
+import { AnimatePresence } from "framer-motion";
 
 const store = configureStore();
 function MyApp({ Component, pageProps }) {
@@ -16,7 +17,7 @@ function MyApp({ Component, pageProps }) {
         <meta
           name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"
-        ></meta>
+        />
         <link
           rel="icon"
           href={
@@ -31,7 +32,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <GlobalContext.Provider value={global}>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <AnimatePresence exitBeforeEnter>
+            <Component {...pageProps} />
+          </AnimatePresence>
         </Provider>
       </GlobalContext.Provider>
     </>
