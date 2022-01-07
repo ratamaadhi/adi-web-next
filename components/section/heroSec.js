@@ -40,7 +40,7 @@ function HeroSec() {
       >
         <motion.h1
           variants={variant}
-          className="text-6xl sm:text-7xl font-semibold"
+          className="text-6xl sm:text-7xl font-semibold mt-7 md:mt-14"
         >
           Ratama Adhi
         </motion.h1>

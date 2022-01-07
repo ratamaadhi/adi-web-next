@@ -1,5 +1,3 @@
-import { useRouter } from "next/router";
-import Link from "next/link";
 import React, { useContext, useState } from "react";
 import TopNav from "../navigationBar/topNav";
 import MenuRight from "../navigationBar/menuRight";

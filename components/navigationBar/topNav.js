@@ -40,11 +40,11 @@ function TopNav({toggleNav, setToggleNav}) {
       variants={variant}
       animate="animate"
       initial="initial"
-      className={`sticky top-0 left-0 z-20 w-full flex justify-between items-center text-secondary px-8 md:px-20 transition-all duration-300 ease-in-out ${scroll ? 'glassmorph h-20 border-b border-[#ffffff20]': 'h-28'} ${toggleNav ? 'border-b border-[#ffffff20]' : ''}`}>
+      className={`sticky top-0 left-0 z-20 w-full flex justify-between items-center  text-secondary px-8 md:px-20 transition-all duration-300 ease-in-out ${scroll ? 'glassmorph h-20 border-b border-[#ffffff20]': 'h-28'} ${toggleNav ? 'border-b border-[#ffffff20] glassmorph' : ''}`}>
       <div className='text-2xl w-auto h-8 font-bold blur-none'>
         RA.
       </div>
-      <div className='text-2xl p-4 text-secondary blur-none' onClick={ ()=> setToggleNav(!toggleNav)}>
+      <div className='text-2xl py-4 pl-4 text-secondary blur-none' onClick={ ()=> setToggleNav(!toggleNav)}>
         {toggleNav ? 
           <HiOutlineX/>
         :
