@@ -10,7 +10,7 @@ function TopNav({ toggleNav, setToggleNav }) {
   const variant = {
     initial: {
       opacity: 0,
-      x: -60,
+      x: -30,
     },
     animate: {
       opacity: 1,
@@ -23,7 +23,7 @@ function TopNav({ toggleNav, setToggleNav }) {
     },
     exit: {
       opacity: 0,
-      x: 60,
+      x: 30,
     },
   };
 

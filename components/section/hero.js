@@ -8,7 +8,7 @@ function Hero() {
   const variant = {
     initial: {
       opacity: 0,
-      x: -60,
+      x: -30,
     },
     animate: {
       opacity: 1,
@@ -21,7 +21,7 @@ function Hero() {
     },
     exit: {
       opacity: 0,
-      x: 60,
+      x: 30,
       transition: {
         delayChildren: 0.2,
         staggerChildren: 0.05,
