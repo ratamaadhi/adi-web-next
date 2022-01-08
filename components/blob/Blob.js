@@ -2,7 +2,7 @@ import React from "react";
 
 function Blob() {
   return (
-  <div className={`absolute -top-24 md:-top-28 lg:-top-24 lg:left-32 xl:-top-0 xl:left-20 lg:w-[375px] lg:h-[375px] xl:w-[512px] xl:h-[512px] w-[320px] h-[320px] blur-2xl xl:blur-3xl z-0`}>
+  <div className={`absolute -top-20 md:-top-28 md:left-20 lg:left-16 xl:-top-40 xl:left-0 lg:-top-32 lg:w-[375px] lg:h-[375px] xl:w-[425px] xl:h-[425px] w-[320px] h-[320px] blur-lg xl:blur-xl z-0`}>
       <svg
         viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"
@@ -11,8 +11,8 @@ function Blob() {
       >
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style={{stopColor: 'rgb(255, 94, 32)'}}></stop>
-            <stop offset="100%" style={{stopColor: 'rgb(180, 83, 9)'}}></stop>
+            <stop offset="0%" style={{stopColor: '#b45309'}}></stop>
+            <stop offset="100%" style={{stopColor: '#312e81'}}></stop>
           </linearGradient>
         </defs>
         <path

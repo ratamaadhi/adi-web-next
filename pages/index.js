@@ -14,4 +14,10 @@ function Home(props) {
   );
 }
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 export default connect((state) => state)(Home);
