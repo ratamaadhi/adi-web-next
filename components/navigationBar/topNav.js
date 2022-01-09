@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineMenuAlt2, HiOutlineX } from "react-icons/hi";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useInnerWidth from "../../lib/hooks/useInnerWidth";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 function TopNav({ toggleNav, setToggleNav }) {
+  const router = useRouter();
+  const path = router.route;
+
   const { windowWidth } = useInnerWidth();
 
   const variant = {
@@ -16,7 +20,7 @@ function TopNav({ toggleNav, setToggleNav }) {
       opacity: 1,
       x: 0,
       transition: {
-        duration: .5,
+        duration: 0.5,
         delayChildren: 0.3,
         staggerChildren: 0.1,
       },
@@ -47,26 +51,34 @@ function TopNav({ toggleNav, setToggleNav }) {
         "border-b border-[#ffffff20] glassmorph"
       }`}
     >
-      <motion.div
-        variants={variant}
-        animate="animate"
-        initial="initial"
-        className="text-2xl w-auto h-8 font-bold blur-none"
-      >
-        RA.
-      </motion.div>
+      <Link href={"/"}>
+        <motion.div
+          variants={variant}
+          animate="animate"
+          initial="initial"
+          className="text-2xl w-auto h-8 font-bold blur-none"
+        >
+          RA.
+        </motion.div>
+      </Link>
       <motion.div
         variants={variant}
         initial="exit"
         animate="animate"
         className={`px-2 py-2 lg:flex hidden justify-between items-center w-[300px]`}
       >
-        <Link href={"/"}>
+        <Link href={"/projects"}>
           <motion.a
             variants={variant}
             className="flex justify-center items-center w-20"
           >
-            <div className="hover:text-secondary hover:font-medium hover:text-lg hover:border-b-[2px] hover:border-secondary cursor-pointer hover:pb-1">
+            <div
+              className={`${
+                path == "/projects"
+                  ? "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium"
+                  : "text-secondary"
+              } hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+            >
               Projects
             </div>
           </motion.a>
@@ -76,7 +88,7 @@ function TopNav({ toggleNav, setToggleNav }) {
             variants={variant}
             className="flex justify-center items-center w-20"
           >
-            <div className="hover:text-secondary hover:font-medium hover:text-lg hover:border-b-[2px] hover:border-secondary cursor-pointer hover:pb-1">
+            <div className="text-secondary hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out">
               Blogs
             </div>
           </motion.a>
@@ -86,7 +98,7 @@ function TopNav({ toggleNav, setToggleNav }) {
             variants={variant}
             className="flex justify-center items-center w-20"
           >
-            <div className="hover:text-secondary hover:font-medium hover:text-lg hover:border-b-[2px] hover:border-secondary cursor-pointer hover:pb-1">
+            <div className="text-secondary hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out">
               About
             </div>
           </motion.a>

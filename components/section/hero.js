@@ -67,7 +67,7 @@ function Hero() {
             </motion.p>
             <motion.p
               variants={variant}
-              className="text-sm sm:text-lg font-normal sm:font-medium mt-8 lg:w-3/4"
+              className="text-xs md:text-md font-normal sm:font-medium leading-relaxed mt-8 md:w-3/4 lg:w-[512px]"
             >
               Minimalism is a tool that can assist you in finding freedom.
               Freedom from fear. Freedom from worry. Freedom from overwhelm.

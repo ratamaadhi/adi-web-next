@@ -358,6 +358,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tailwindcss/line-clamp@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@tailwindcss/line-clamp@npm:0.3.0"
+  peerDependencies:
+    tailwindcss: ">=2.0.0 || >=3.0.0 || >=3.0.0-alpha.1"
+  checksum: 9b1d306d1001f6f297ef555cfa5a9e69bd1643a982d0f9dc5a929a2e1afa099ae8844fc02ba3395af229d00bab9c40d1bab79872ca154d9e0e607d49d043b524
+  languageName: node
+  linkType: hard
+
 "@tootallnate/once@npm:1":
   version: 1.1.2
   resolution: "@tootallnate/once@npm:1.1.2"
@@ -3239,6 +3248,15 @@ next@latest:
   languageName: node
   linkType: hard
 
+"react-masonry-css@npm:^1.0.16":
+  version: 1.0.16
+  resolution: "react-masonry-css@npm:1.0.16"
+  peerDependencies:
+    react: ">=16.0.0"
+  checksum: 3fbffac31535b049b3117b952b112dce31f8e2a84031191a926ad21b782cf20d07761fb90134dded339498be40360e0864af6bc0696f1606c7a4cb5a6aa1ad18
+  languageName: node
+  linkType: hard
+
 "react-merge-refs@npm:^1.1.0":
   version: 1.1.0
   resolution: "react-merge-refs@npm:1.1.0"
@@ -3440,6 +3458,7 @@ next@latest:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@apollo/client": ^3.5.6
+    "@tailwindcss/line-clamp": ^0.3.0
     autoprefixer: ^10.2.6
     axios: ^0.24.0
     framer-motion: ^5.5.5
@@ -3449,6 +3468,7 @@ next@latest:
     react: ^17.0.2
     react-dom: ^17.0.2
     react-icons: ^4.3.1
+    react-masonry-css: ^1.0.16
     react-redux: ^7.2.6
     redux: ^4.1.2
     redux-devtools-extension: ^2.13.9

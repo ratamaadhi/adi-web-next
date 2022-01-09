@@ -12,13 +12,14 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 import { GLOBAL } from "../lib/graphql/queries";
+import { client } from '../lib/graphql/setup'
 
-const client = new ApolloClient({
-  uri:
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/graphql` ||
-    "http://localhost:1337/graphql",
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   uri:
+//     `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/graphql` ||
+//     "http://localhost:1337/graphql",
+//   cache: new InMemoryCache(),
+// });
 
 const store = configureStore();
 function MyApp({ Component, pageProps }) {
