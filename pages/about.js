@@ -5,9 +5,13 @@ import Seo from "../components/seo";
 import { fetchAPI } from "../lib/api";
 
 function AboutPage({about}) {
+  const seo = {
+    metaTitle: "About",
+    metaDescription: "Less is better",
+  };
   return (
     <Layout>
-      <Seo />
+      <Seo seo={seo} />
       <About about={about} />
     </Layout>
   );

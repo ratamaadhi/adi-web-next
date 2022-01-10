@@ -5,10 +5,14 @@ import Seo from "../../components/seo";
 import { fetchAPI } from "../../lib/api";
 
 const Slugs = ({fallback, slug}) => {
-
+  const seo = {
+    metaTitle: fallback["/projects/" + slug].name,
+    metaDescription: fallback["/projects/" + slug].descriptions,
+    shareImage: fallback["/projects/" + slug].thumbnail
+  };
   return (
     <Layout>
-      <Seo />
+      <Seo seo={seo}/>
       <Project slug={slug} />
     </Layout>
   );

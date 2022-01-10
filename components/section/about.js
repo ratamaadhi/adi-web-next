@@ -28,8 +28,6 @@ const About = ({ about }) => {
             src={"/hero-image.png"}
             alt={"ratama adhi"}
             layout="fill"
-            width={144}
-            height={144}
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
               shimmer(144, 144)
@@ -51,8 +49,8 @@ const About = ({ about }) => {
           Current Tech
         </h1>
         <div className="mt-4 w-full flex flex-wrap items-center lg:justify-center">
-          {about.technologies.map((tech) => (
-            <div className="flex flex-col justify-center items-center p-4">
+          {about.technologies.map((tech, i) => (
+            <div key={tech.id} className="flex flex-col justify-center items-center p-4">
               <span className="text-4xl text-secondary">
                 {iconsTech(tech.name.toLowerCase())}
               </span>
