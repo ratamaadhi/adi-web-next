@@ -33,3 +33,30 @@
 .my-masonry-grid_column > div { /* change div to reference your elements you put in <Masonry> */
   margin-bottom: 30px;
 }
+
+.markdown-container > h1,
+.markdown-container > h2,
+.markdown-container > h3,
+.markdown-container > p,
+.markdown-container strong,
+.markdown-container blockquote,
+.prose a {
+  @apply text-secondary antialiased;
+}
+
+.markdown-container figure {
+  @apply aspect-video mx-auto;
+}
+
+.markdown-container blockquote {
+  @apply border-l-4 border-tertiary ;
+}
+.prose > pre, .prose-lg > pre, .md\:prose-lg > pre{
+  @apply bg-primary;
+  padding: 0 !important;
+}
+
+.prose pre > pre, .prose-lg pre > pre{
+  margin: 0 !important;
+  @apply md:m-0 m-0;
+}

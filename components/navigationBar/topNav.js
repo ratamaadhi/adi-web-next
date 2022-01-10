@@ -56,7 +56,7 @@ function TopNav({ toggleNav, setToggleNav }) {
           variants={variant}
           animate="animate"
           initial="initial"
-          className="text-2xl w-auto h-8 font-bold blur-none"
+          className="text-2xl w-auto h-8 font-bold blur-none cursor-pointer"
         >
           RA.
         </motion.div>

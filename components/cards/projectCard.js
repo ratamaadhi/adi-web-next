@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { getStrapiMedia, myLoader } from "../../lib/media";
 import { shimmer, toBase64 } from "../../util/toBase64";
+import Link from "next/link";
 
 const ProjectCard = ({ project }) => {
   return (
@@ -37,9 +38,12 @@ const ProjectCard = ({ project }) => {
             </div>
           ))}
         </div>
-        <div className="text-xss min-w-1/3 px-2 py-1 text-center text-indigo-700 self-end rounded">
-          Read more
-        </div>
+        <Link href={"/projects/"+project.slug}>
+          <div 
+            className="text-xss min-w-1/3 px-2 py-1 text-center bg-indigo-700/20 text-indigo-700 self-end rounded cursor-pointer">
+            Read more
+          </div>
+        </Link>
       </div>
     </div>
   );

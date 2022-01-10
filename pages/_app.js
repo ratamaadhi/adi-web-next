@@ -12,7 +12,7 @@ import {
   ApolloProvider,
 } from "@apollo/client";
 import { GLOBAL } from "../lib/graphql/queries";
-import { client } from '../lib/graphql/setup'
+import client from '../lib/graphql/setup'
 
 // const client = new ApolloClient({
 //   uri:

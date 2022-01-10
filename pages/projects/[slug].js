@@ -1,0 +1,44 @@
+import React from "react";
+import Layout from "../../components/layout";
+import Project from "../../components/section/project";
+import Seo from "../../components/seo";
+import { fetchAPI } from "../../lib/api";
+
+const Slugs = ({fallback, slug}) => {
+
+  return (
+    <Layout>
+      <Seo />
+      <Project slug={slug} />
+    </Layout>
+  );
+};
+
+export async function getStaticPaths() {
+  const projects = await fetchAPI("/projects");
+  const paths = projects.map((project) => ({
+    params: { slug: project.slug },
+  }));
+
+  return { paths, fallback: 'blocking' };
+}
+
+export async function getStaticProps({ params }) {
+  const { slug } = params;
+  // Run API calls in parallel
+  const [selectedProject] = await Promise.all([
+    fetchAPI("/projects/" + slug)
+  ]);
+
+  return {
+    props: {
+      fallback: {
+        ["/projects/" + slug]: selectedProject,
+      },
+      slug,
+    },
+    revalidate: 1,
+  };
+}
+
+export default Slugs;
