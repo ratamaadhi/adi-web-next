@@ -42,7 +42,7 @@ const Project = ({ slug }) => {
       </div>
       <div className="w-full md:w-8/12 md:mx-auto flex flex-col items-center bg-primary pt-6">
         <div className="w-full h-auto mx-auto flex justify-between items-center mb-2 text-secondary">
-          <h2 className={`font-bold text-4xl md:text-6xl font-poppins ${isLoading && 'w-1/2 h-10 rounded-md bg-secondary/30 animate-pulse'}`}>
+          <h2 className={`font-bold text-4xl md:text-5xl lg:text-6xl font-poppins ${isLoading && 'w-1/2 h-10 rounded-md bg-secondary/30 animate-pulse'}`}>
             {selectedProject && selectedProject.name}
           </h2>
         </div>

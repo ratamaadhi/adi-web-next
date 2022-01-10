@@ -48,6 +48,10 @@
   @apply aspect-video mx-auto;
 }
 
+.markdown-container > p > img {
+  @apply max-w-[240px] md:max-w-xs lg:max-w-lg mx-auto my-0
+}
+
 .markdown-container blockquote {
   @apply border-l-4 border-tertiary ;
 }
