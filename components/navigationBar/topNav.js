@@ -65,7 +65,7 @@ function TopNav({ toggleNav, setToggleNav }) {
         variants={variant}
         initial="exit"
         animate="animate"
-        className={`px-2 py-2 lg:flex hidden justify-between items-center w-[300px]`}
+        className={`px-2 py-2 lg:flex hidden justify-end items-center w-[300px]`}
       >
         <Link href={"/projects"}>
           <motion.a
@@ -75,30 +75,40 @@ function TopNav({ toggleNav, setToggleNav }) {
             <div
               className={`${
                 path == "/projects"
-                  ? "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium"
+                  ? "text-amber-600 font-medium"
                   : "text-secondary"
-              } hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+              } hover:text-amber-600 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
             >
               Projects
             </div>
           </motion.a>
         </Link>
-        <Link href={"/"}>
+        {/* <Link href={"/"}>
           <motion.a
             variants={variant}
             className="flex justify-center items-center w-20"
           >
-            <div className="text-secondary hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out">
+            <div className={`${
+                path == "/blogs"
+                  ? "text-amber-600 font-medium"
+                  : "text-secondary"
+              } hover:text-amber-600 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}>
               Blogs
             </div>
           </motion.a>
-        </Link>
-        <Link href={"/"}>
+        </Link> */}
+        <Link href={"/about"}>
           <motion.a
             variants={variant}
             className="flex justify-center items-center w-20"
           >
-            <div className="text-secondary hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out">
+            <div
+              className={`${
+                path == "/about"
+                  ? "text-amber-600 font-medium"
+                  : "text-secondary"
+              } hover:text-amber-600 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+            >
               About
             </div>
           </motion.a>

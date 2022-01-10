@@ -6,8 +6,8 @@ import Link from "next/link";
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="relative w-56 md:w-60 h-auto bg-secondary rounded-md overflow-hidden shadow-lg">
-      <div className="relative w-full">
+    <div className="relative w-56 md:w-60 h-auto bg-tertiary rounded-md overflow-hidden shadow-lg">
+      <div className="relative w-full bg-secondary">
         <Image
           loader={myLoader}
           src={getStrapiMedia(project.thumbnail.formats.thumbnail)}
@@ -24,23 +24,23 @@ const ProjectCard = ({ project }) => {
           )}`}
         />
       </div>
-      <div className="p-3 w-full flex flex-col justify-center items-start space-y-3">
-        <div className="w-full bg-secondary text-sm font-semibold text-tertiary">
+      <div className="p-3 w-full flex flex-col justify-center items-start">
+        <div className="w-full bg-tertiary text-lg font-semibold text-secondary">
           {project.name}
         </div>
-        <div className="w-full bg-secondary text-xs leading-relaxed line-clamp-2 font-medium text-tertiary">
+        <div className="w-full bg-tertiary text-xs leading-relaxed line-clamp-2 font-base text-secondary/70 mt-1">
           {project.descriptions}
         </div>
-        <div className="flex justify-start items-center flex-wrap">
+        <div className="flex justify-start items-center flex-wrap mt-2">
           {project.technologies && project.technologies.map(tech => (
-            <div key={tech.id} className="text-xss text-secondary py-1 px-2 rounded bg-primary/50 mt-2 mr-2">
+            <div key={tech.id} className="text-xss text-secondary/80 py-1 px-2 rounded bg-primary/50 tracking-wide mt-2 mr-2">
               {tech.name}
             </div>
           ))}
         </div>
         <Link href={"/projects/"+project.slug}>
           <div 
-            className="text-xss min-w-1/3 px-2 py-1 text-center bg-indigo-700/20 text-indigo-700 self-end rounded cursor-pointer">
+            className="text-xss w-full px-2 py-1 text-center bg-primary hover:bg-primary/70 text-secondary font-semibold tracking-wide self-end rounded cursor-pointer mt-6 shadow-sm transition-all duration-300 ease-in-out">
             Read more
           </div>
         </Link>

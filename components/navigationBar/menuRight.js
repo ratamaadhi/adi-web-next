@@ -70,14 +70,13 @@ function MenuRight({ toggleNav, setToggleNav }) {
               variants={variant}
               className={`${
                 path == "/projects"
-                  ? "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-2xl"
-                  : "text-secondary"
-              } w-full h-20 flex justify-center items-center font-semibold hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
+                  && "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-2xl"
+              } text-secondary w-full h-20 flex justify-center items-center font-semibold hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
             >
               Projects
             </motion.div>
           </Link>
-          <motion.div
+          {/* <motion.div
             variants={variant}
             className={`${
               path == "/blogs"
@@ -86,17 +85,19 @@ function MenuRight({ toggleNav, setToggleNav }) {
             } w-full h-20 flex justify-center items-center font-semibold hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
           >
             Blogs
-          </motion.div>
-          <motion.div
-            variants={variant}
-            className={`${
-              path == "/about"
-                ? "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-2xl"
-                : "text-secondary"
-            } w-full h-20 flex justify-center items-center font-semibold hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
-          >
-            About
-          </motion.div>
+          </motion.div> */}
+          <Link href={"/about"}>
+            <motion.div
+              variants={variant}
+              className={`${
+                path == "/about"
+                  ? "text-transparent bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 font-medium text-2xl"
+                  : "text-secondary"
+              } w-full h-20 flex justify-center items-center font-semibold hover:text-transparent bg-clip-text bg-secondary hover:bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
+            >
+              About
+            </motion.div>
+          </Link>
         </motion.div>
       )}
     </AnimatePresence>

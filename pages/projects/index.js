@@ -3,7 +3,6 @@ import Layout from "../../components/layout";
 import Projects from "../../components/section/projects";
 import Seo from "../../components/seo";
 import { fetchAPI } from "../../lib/api";
-import { useRouter } from "next/router";
 import useFetch from "../../lib/hooks/useFetch";
 
 function ProjectsPage({ projects }) {

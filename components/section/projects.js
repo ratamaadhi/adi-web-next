@@ -12,21 +12,22 @@ const Projects = ({ projects, isLoading }) => {
 
   function SkeletonProjectCard() {
     return (
-      <div className="relative w-56 md:w-60 h-auto bg-secondary rounded-md overflow-hidden shadow-lg">
-        <div className="relative w-full h-32 bg-tertiary/30 animate-pulse"/>
+      <div className="relative w-56 md:w-60 h-auto bg-tertiary rounded-md overflow-hidden shadow-lg">
+        <div className="relative w-full h-32 bg-secondary/30 animate-pulse"/>
         <div className="p-3 w-full flex flex-col justify-center items-start space-y-3">
-          <div className="w-full bg-secondary text-sm font-semibold text-tertiary">
-            <div className="w-2/3 h-3 bg-tertiary/30 rounded animate-pulse"/>
+          <div className="w-full bg-tertiary text-sm font-semibold text-secondary">
+            <div className="w-2/3 h-6 bg-secondary/30 rounded animate-pulse"/>
           </div>
-          <div className="w-full bg-secondary text-xs leading-relaxed line-clamp-2 font-medium text-tertiary">
-            <div className="w-4/5 h-3 bg-tertiary/30 rounded animate-pulse"/>
+          <div className="w-full bg-tertiary text-xs leading-relaxed line-clamp-2 font-medium text-tertiary space-y-2">
+            <div className="w-4/5 h-3 bg-secondary/30 rounded animate-pulse"/>
+            <div className="w-3/5 h-3 bg-secondary/30 rounded animate-pulse"/>
           </div>
           <div className="flex justify-start items-center flex-wrap">
-            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-primary/30 mt-2 mr-2 animate-pulse"/>
-            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-primary/30 mt-2 mr-2 animate-pulse"/>
-            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-primary/30 mt-2 mr-2 animate-pulse"/>
+            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-secondary/30 mt-2 mr-2 animate-pulse"/>
+            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-secondary/30 mt-2 mr-2 animate-pulse"/>
+            <div className="text-xss text-secondary py-2 px-3 w-8 rounded bg-secondary/30 mt-2 mr-2 animate-pulse"/>
           </div>
-          <div className="text-xss min-w-1/3 px-2 py-1 text-center bg-indigo-700/20 text-indigo-700/30 self-end rounded animate-pulse">Read more</div>
+          <div className="text-xss w-full px-2 py-1 text-center bg-primary/70 text-secondary self-end rounded animate-pulse">---- ----</div>
         </div>
       </div>
     );
