@@ -4,8 +4,14 @@ import { motion } from "framer-motion";
 import useInnerWidth from "../../lib/hooks/useInnerWidth";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import useScroll from "../../lib/hooks/useScroll";
+import Modal from "../modal/Modal";
+import FormContactMe from "../form/FormContactMe";
 
 function TopNav({ toggleNav, setToggleNav }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const { scroll } = useScroll({ limit: 30 });
   const router = useRouter();
   const path = router.route;
 
@@ -31,16 +37,10 @@ function TopNav({ toggleNav, setToggleNav }) {
     },
   };
 
-  const [scroll, setScroll] = useState(false);
-
-  function handleScroll() {
-    document.body.scrollTop > 30 || document.documentElement.scrollTop > 30
-      ? setScroll(true)
-      : setScroll(false);
-  }
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+    console.log("windowWidth", windowWidth);
+  }, [windowWidth]);
+
   return (
     <nav
       className={`sticky top-0 left-0 z-20 w-full 2xl:container 2xl:mx-auto flex justify-between items-center  text-secondary px-8 md:px-20 transition-all duration-300 ease-in-out ${
@@ -113,6 +113,25 @@ function TopNav({ toggleNav, setToggleNav }) {
             </div>
           </motion.a>
         </Link>
+        <motion.div
+          variants={variant}
+          className="flex justify-center items-center"
+        >
+          <div
+            onClick={() => setShowModal(!showModal)}
+            className={`px-3 py-2 bg-amber-700 rounded-md font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+          >
+            Contact Me
+          </div>
+          <Modal
+            isOpen={showModal}
+            closeModal={setShowModal}
+            title="Contact me"
+            withClose={false}
+          >
+            <FormContactMe />
+          </Modal>
+        </motion.div>
       </motion.div>
       <div
         className="block lg:hidden text-2xl py-4 pl-4 text-secondary blur-none"
