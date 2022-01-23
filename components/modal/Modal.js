@@ -1,5 +1,7 @@
 import { Dialog, Transition } from "@headlessui/react";
 import React, { Fragment } from "react";
+import { HiOutlineX } from 'react-icons/hi';
+
 
 const Modal = ({
   isOpen = false,
@@ -46,25 +48,22 @@ const Modal = ({
           >
             <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-primary border border-tertiary shadow-xl rounded-xl">
               <Dialog.Title
-                as="h3"
-                className="text-lg font-medium leading-6 text-secondary border-b border-tertiary pb-2"
+                as="div"
+                className="flex justify-between items-center"
               >
-                {title}
-              </Dialog.Title>
-
-              <div className="mt-4">{children}</div>
-
-              {withClose && (
-                <div className="mt-4">
+                <h3 className="text-lg font-medium leading-6 text-secondary">{title}</h3>
+                {withClose && (
                   <button
                     type="button"
-                    className="inline-flex justify-center px-3 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                    className="inline-flex justify-center p-2 text-sm font-medium text-secondary border border-tertiary rounded-md"
                     onClick={() => closeModal(false)}
                   >
-                    Close
+                    <HiOutlineX />
                   </button>
-                </div>
               )}
+              </Dialog.Title>
+
+              <div className="mt-8">{children}</div>
             </div>
           </Transition.Child>
         </div>

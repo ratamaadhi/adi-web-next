@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { HiOutlineMenuAlt2, HiOutlineX } from "react-icons/hi";
 import { motion } from "framer-motion";
 import useInnerWidth from "../../lib/hooks/useInnerWidth";
@@ -36,10 +36,6 @@ function TopNav({ toggleNav, setToggleNav }) {
       x: 30,
     },
   };
-
-  useEffect(() => {
-    console.log("windowWidth", windowWidth);
-  }, [windowWidth]);
 
   return (
     <nav
@@ -119,7 +115,7 @@ function TopNav({ toggleNav, setToggleNav }) {
         >
           <div
             onClick={() => setShowModal(!showModal)}
-            className={`px-3 py-2 bg-amber-700 rounded-md font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+            className={`px-3 py-2 bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 rounded-md font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
           >
             Contact Me
           </div>
@@ -127,7 +123,6 @@ function TopNav({ toggleNav, setToggleNav }) {
             isOpen={showModal}
             closeModal={setShowModal}
             title="Contact me"
-            withClose={false}
           >
             <FormContactMe />
           </Modal>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -107,7 +107,7 @@ function MenuRight({ toggleNav, setToggleNav }) {
             <motion.div
               onClick={() => openModal()}
               variants={variant}
-              className={`px-3 py-2 rounded-md flex justify-center items-center font-semibold bg-amber-700 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
+              className={`px-3 py-2 rounded-md flex justify-center items-center font-semibold bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
             >
               Contact Me
             </motion.div>
@@ -118,7 +118,7 @@ function MenuRight({ toggleNav, setToggleNav }) {
         isOpen={showModal}
         closeModal={closeModal}
         title="Contact me"
-        withClose={false}
+
       >
         <FormContactMe />
       </Modal>
