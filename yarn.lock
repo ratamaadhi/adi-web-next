@@ -183,6 +183,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@headlessui/react@npm:^1.4.3":
+  version: 1.4.3
+  resolution: "@headlessui/react@npm:1.4.3"
+  peerDependencies:
+    react: ^16 || ^17 || ^18
+    react-dom: ^16 || ^17 || ^18
+  checksum: 0c55bba6dc09a81576ec7d41320e3beb57b3f4576637ac4aad6048af851d5fe5434fd0d10dfb5c7b2db16eca6ded5eb3368822ddb87ff4dcb99fc3592ef63b0a
+  languageName: node
+  linkType: hard
+
 "@napi-rs/triples@npm:1.0.3":
   version: 1.0.3
   resolution: "@napi-rs/triples@npm:1.0.3"
@@ -364,6 +374,17 @@ __metadata:
     mkdirp: ^1.0.4
     rimraf: ^3.0.2
   checksum: c96381d4a37448ea280951e46233f7e541058cf57a57d4094dd4bdcaae43fa5872b5f2eb6bfb004591a68e29c5877abe3cdc210cb3588cbf20ab2877f31a7de7
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/forms@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@tailwindcss/forms@npm:0.4.0"
+  dependencies:
+    mini-svg-data-uri: ^1.2.3
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 881a80b136f22b3da68323166ddfbcd844841f711d75ce4d64479302ae523ac7c1fe8a3bb57370216e6da69303640d70d543ecdb3ec2086f1ddf428a6c13566f
   languageName: node
   linkType: hard
 
@@ -3340,6 +3361,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mini-svg-data-uri@npm:^1.2.3":
+  version: 1.4.3
+  resolution: "mini-svg-data-uri@npm:1.4.3"
+  bin:
+    mini-svg-data-uri: cli.js
+  checksum: bd1789c34907a36ae9157897b7c7f6ad700e71c8cb6d725bb2810ce6211abcaa3717333ca17408f6f8b2a44055e571cd5b78d478688e1864513cb7f8e023ae3f
+  languageName: node
+  linkType: hard
+
 "minimalistic-assert@npm:^1.0.0, minimalistic-assert@npm:^1.0.1":
   version: 1.0.1
   resolution: "minimalistic-assert@npm:1.0.1"
@@ -4541,6 +4571,8 @@ next@latest:
   resolution: "root-workspace-0b6124@workspace:."
   dependencies:
     "@apollo/client": ^3.5.6
+    "@headlessui/react": ^1.4.3
+    "@tailwindcss/forms": ^0.4.0
     "@tailwindcss/line-clamp": ^0.3.0
     "@tailwindcss/typography": ^0.5.0
     autoprefixer: ^10.2.6
