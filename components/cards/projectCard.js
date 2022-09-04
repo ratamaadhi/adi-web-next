@@ -1,10 +1,10 @@
-import Image from "next/image";
-import React from "react";
-import { getStrapiMedia, myLoader } from "../../lib/media";
-import { shimmer, toBase64 } from "../../util/toBase64";
-import Link from "next/link";
+import Image from 'next/image';
+import React from 'react';
+import Link from 'next/link';
+import { getStrapiMedia, myLoader } from '../../lib/media';
+import { shimmer, toBase64 } from '../../util/toBase64';
 
-const ProjectCard = ({ project }) => {
+function ProjectCard({ project }) {
   return (
     <div className="relative w-56 md:w-60 h-auto bg-tertiary rounded-md overflow-hidden shadow-lg">
       <div className="relative w-full bg-secondary">
@@ -32,21 +32,24 @@ const ProjectCard = ({ project }) => {
           {project.descriptions}
         </div>
         <div className="flex justify-start items-center flex-wrap mt-2">
-          {project.technologies && project.technologies.map(tech => (
-            <div key={tech.id} className="text-xss text-secondary/80 py-1 px-2 rounded bg-primary/50 tracking-wide mt-2 mr-2">
-              {tech.name}
-            </div>
-          ))}
+          {project.technologies &&
+            project.technologies.map((tech) => (
+              <div
+                key={tech.id}
+                className="text-xss text-secondary/80 py-1 px-2 rounded bg-primary/50 tracking-wide mt-2 mr-2"
+              >
+                {tech.name}
+              </div>
+            ))}
         </div>
-        <Link href={"/projects/"+project.slug}>
-          <div 
-            className="text-xss w-full px-2 py-1 text-center bg-primary hover:bg-primary/70 text-secondary font-semibold tracking-wide self-end rounded cursor-pointer mt-6 shadow-sm transition-all duration-300 ease-in-out">
+        <Link href={`/projects/${project.slug}`}>
+          <div className="text-xss w-full px-2 py-1 text-center bg-primary hover:bg-primary/70 text-secondary font-semibold tracking-wide self-end rounded cursor-pointer mt-6 shadow-sm transition-all duration-300 ease-in-out">
             Read more
           </div>
         </Link>
       </div>
     </div>
   );
-};
+}
 
 export default ProjectCard;

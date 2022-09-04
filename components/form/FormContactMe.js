@@ -1,19 +1,19 @@
-import React, { useState } from "react";
-import { createContactMeApi } from "../../lib/api";
+import React, { useState } from 'react';
+import { createContactMeApi } from '../../lib/api';
 
-const FormContactMe = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+function FormContactMe() {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [messageAlert, setmessageAlert] = useState("");
+  const [messageAlert, setmessageAlert] = useState('');
 
   function reset() {
-    setFullName("");
-    setEmail("");
-    setMessage("");
+    setFullName('');
+    setEmail('');
+    setMessage('');
   }
 
   function handleSubmit(e) {
@@ -24,21 +24,21 @@ const FormContactMe = () => {
       email,
       message,
     })
-      .then((res) => {
-        setmessageAlert("succes");
+      .then(() => {
+        setmessageAlert('succes');
         setIsSuccess(true);
         reset();
       })
-      .catch((err) => {
+      .catch(() => {
         setIsError(true);
-        setMessage("failed");
+        setMessage('failed');
       })
       .finally(() => {
         setIsLoading(false);
         setTimeout(() => {
           setIsError(false);
           setIsSuccess(false);
-          setmessageAlert("");
+          setmessageAlert('');
         }, 3000);
       });
   }
@@ -54,7 +54,7 @@ const FormContactMe = () => {
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           className={`peer w-full px-0 border-b border-x-0 border-t-0 border-tertiary shadow-sm bg-primary focus:outline-none focus:ring-0 focus:border-amber-700 placeholder:text-transparent ${
-            isLoading ? "text-gray-400" : " text-secondary"
+            isLoading ? 'text-gray-400' : ' text-secondary'
           }`}
           required
           disabled={isLoading}
@@ -73,7 +73,7 @@ const FormContactMe = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className={`peer w-full px-0 border-b border-x-0 border-t-0 border-tertiary shadow-sm bg-primary focus:outline-none focus:ring-0 focus:border-amber-700 placeholder:text-transparent ${
-            isLoading ? "text-gray-400" : " text-secondary"
+            isLoading ? 'text-gray-400' : ' text-secondary'
           }`}
           required
           disabled={isLoading}
@@ -91,7 +91,7 @@ const FormContactMe = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className={`peer w-full border-tertiary rounded-lg shadow-sm bg-primary focus:outline-none focus:ring-0 focus:border-amber-700 placeholder:text-transparent resize-none ${
-            isLoading ? "text-gray-400" : " text-secondary"
+            isLoading ? 'text-gray-400' : ' text-secondary'
           }`}
           required
           disabled={isLoading}
@@ -104,10 +104,10 @@ const FormContactMe = () => {
         <div
           className={`${
             !isLoading && isSuccess
-              ? "text-green-400 border border-green-400"
+              ? 'text-green-400 border border-green-400'
               : !isLoading && isError
-              ? "text-red-400 border border-red-400"
-              : ""
+              ? 'text-red-400 border border-red-400'
+              : ''
           } text-xs px-2 py-1 rounded-lg`}
         >
           {messageAlert}
@@ -117,11 +117,11 @@ const FormContactMe = () => {
           className="w-36 mt-2 px-3 py-2 rounded-lg bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 text-secondary shadow-sm"
           disabled={isLoading}
         >
-          {isLoading ? "loading.." : "Send"}
+          {isLoading ? 'loading..' : 'Send'}
         </button>
       </div>
     </form>
   );
-};
+}
 
 export default FormContactMe;

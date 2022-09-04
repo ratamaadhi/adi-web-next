@@ -1,7 +1,7 @@
-import Image from "next/image";
-import { myLoader } from "../../lib/media";
-import { shimmer, toBase64 } from "../../util/toBase64";
-import { motion } from "framer-motion";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { myLoader } from '../../lib/media';
+import { shimmer, toBase64 } from '../../util/toBase64';
 
 function HeroSec() {
   const variant = {
@@ -59,7 +59,7 @@ function HeroSec() {
           variants={variant}
           className="text-3xl sm:text-5xl mt-14 font-medium italic"
         >
-          " Less is better "
+          &quot; Less is better &quot;
         </motion.h1>
         <motion.p
           variants={variant}
@@ -93,8 +93,8 @@ function HeroSec() {
       >
         <Image
           loader={myLoader}
-          src={"/hero-image.png"}
-          alt={"ratama adhi"}
+          src="/hero-image.png"
+          alt="ratama adhi"
           layout="responsive"
           width={311}
           height={414}

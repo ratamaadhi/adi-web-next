@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 import {
   SiJavascript,
   SiReact,
@@ -6,18 +6,19 @@ import {
   SiTailwindcss,
   SiNextdotjs,
   SiStrapi,
-} from "react-icons/si";
-import { myLoader } from "../../lib/media";
-import { shimmer, toBase64 } from "../../util/toBase64";
+} from 'react-icons/si';
+import { myLoader } from '../../lib/media';
+import { shimmer, toBase64 } from '../../util/toBase64';
 
-const About = ({ about }) => {
+function About({ about }) {
   function iconsTech(name) {
-    if (name.includes("javascript")) return <SiJavascript />;
-    if (name.includes("react")) return <SiReact />;
-    if (name.includes("redux")) return <SiRedux />;
-    if (name.includes("tailwind")) return <SiTailwindcss />;
-    if (name.includes("next")) return <SiNextdotjs />;
-    if (name.includes("strapi")) return <SiStrapi />;
+    if (name.includes('javascript')) return <SiJavascript />;
+    if (name.includes('react')) return <SiReact />;
+    if (name.includes('redux')) return <SiRedux />;
+    if (name.includes('tailwind')) return <SiTailwindcss />;
+    if (name.includes('next')) return <SiNextdotjs />;
+    if (name.includes('strapi')) return <SiStrapi />;
+    return false;
   }
   return (
     <div className="relative flex flex-col justify-start md:justify-center items-center w-full lg:w-[768px] lg:mx-auto min-h-[calc(100vh-112px)] pt-8 pb-28 px-8 md:px-20">
@@ -25,8 +26,8 @@ const About = ({ about }) => {
         <div className="relative w-36 h-36 bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 rounded-full border-4 border-secondary overflow-hidden shadow-lg">
           <Image
             loader={myLoader}
-            src={"/hero-image.png"}
-            alt={"ratama adhi"}
+            src="/hero-image.png"
+            alt="ratama adhi"
             layout="fill"
             placeholder="blur"
             blurDataURL={`data:image/svg+xml;base64,${toBase64(
@@ -49,8 +50,11 @@ const About = ({ about }) => {
           Current Tech
         </h1>
         <div className="mt-4 w-full flex flex-wrap items-center lg:justify-center">
-          {about.technologies.map((tech, i) => (
-            <div key={tech.id} className="flex flex-col justify-center items-center p-4">
+          {about.technologies.map((tech) => (
+            <div
+              key={tech.id}
+              className="flex flex-col justify-center items-center p-4"
+            >
               <span className="text-4xl text-secondary">
                 {iconsTech(tech.name.toLowerCase())}
               </span>
@@ -61,6 +65,6 @@ const About = ({ about }) => {
       </div>
     </div>
   );
-};
+}
 
 export default About;

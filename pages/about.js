@@ -1,13 +1,13 @@
-import { connect } from "react-redux";
-import Layout from "../components/layout";
-import About from "../components/section/about";
-import Seo from "../components/seo";
-import { fetchAPI } from "../lib/api";
+import { connect } from 'react-redux';
+import Layout from '../components/layout';
+import About from '../components/section/about';
+import Seo from '../components/seo';
+import { fetchAPI } from '../lib/api';
 
-function AboutPage({about}) {
+function AboutPage({ about }) {
   const seo = {
-    metaTitle: "About",
-    metaDescription: "Less is better",
+    metaTitle: 'About',
+    metaDescription: 'Less is better',
   };
   return (
     <Layout>
@@ -18,10 +18,10 @@ function AboutPage({about}) {
 }
 
 export async function getStaticProps() {
-  const about = await fetchAPI("/about");
+  const about = await fetchAPI('/about');
   return {
     props: {
-      about
+      about,
     },
   };
 }

@@ -1,18 +1,18 @@
-import "../styles/global.css";
-import Head from "next/head";
-import App from "next/app";
-import { getStrapiMedia } from "../lib/media";
-import configureStore from "../redux/store";
-import { Provider } from "react-redux";
-import { GlobalContext } from "../context/globalContext";
-import { AnimatePresence } from "framer-motion";
+import '../styles/global.css';
+import Head from 'next/head';
+import App from 'next/app';
+import { Provider } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 import {
-  ApolloClient,
-  InMemoryCache,
+  // ApolloClient,
+  // InMemoryCache,
   ApolloProvider,
-} from "@apollo/client";
-import { GLOBAL } from "../lib/graphql/queries";
-import client from '../lib/graphql/setup'
+} from '@apollo/client';
+import { getStrapiMedia } from '../lib/media';
+import configureStore from '../redux/store';
+import { GlobalContext } from '../context/globalContext';
+import { GLOBAL } from '../lib/graphql/queries';
+import client from '../lib/graphql/setup';
 
 // const client = new ApolloClient({
 //   uri:
@@ -34,13 +34,8 @@ function MyApp({ Component, pageProps }) {
         <link
           rel="icon"
           href={
-            getStrapiMedia(global.favicon) || "../public/kucing_loading.jpg"
+            getStrapiMedia(global.favicon) || '../public/kucing_loading.jpg'
           }
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
-          rel="stylesheet"
         />
       </Head>
       <GlobalContext.Provider value={global}>
