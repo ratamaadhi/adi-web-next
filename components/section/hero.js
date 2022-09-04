@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { myLoader } from "../../lib/media";
-import { shimmer, toBase64 } from "../../util/toBase64";
-import { motion } from "framer-motion";
-import Blob from "../blob/Blob";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { myLoader } from '../../lib/media';
+import { shimmer, toBase64 } from '../../util/toBase64';
+import Blob from '../blob/Blob';
 
 function Hero() {
   const variant = {
@@ -57,7 +57,7 @@ function Hero() {
               variants={variant}
               className="text-3xl sm:text-5xl mt-10 lg:mt-14 font-medium italic"
             >
-              " Less is better "
+              &quot; Less is better &quot;
             </motion.h1>
             <motion.p
               variants={variant}
@@ -87,8 +87,8 @@ function Hero() {
             <div className="absolute w-full h-full rounded-md bg-gradient-to-br from-amber-700 to-indigo-900 blur-md" />
             <Image
               loader={myLoader}
-              src={"/image-removebg-preview.png"}
-              alt={"ratama adhi"}
+              src="/image-removebg-preview.png"
+              alt="ratama adhi"
               layout="responsive"
               width={500}
               height={500}

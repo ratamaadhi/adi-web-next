@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { useContext } from "react";
-import { connect } from "react-redux";
-import { GlobalContext } from "../../context/globalContext";
-import { getStrapiMedia } from "../../lib/media";
+import Head from 'next/head';
+import { useContext } from 'react';
+import { connect } from 'react-redux';
+import { GlobalContext } from '../../context/globalContext';
+import { getStrapiMedia } from '../../lib/media';
 
-const Seo = ({ seo, ...props }) => {
+function Seo({ seo }) {
   const { defaultSeo, siteName } = useContext(GlobalContext);
   const seoWithDefaults = {
     ...defaultSeo,
@@ -45,6 +45,6 @@ const Seo = ({ seo, ...props }) => {
       <meta name="twitter:card" content="summary_large_image" />
     </Head>
   );
-};
+}
 
-export default connect(state => state)(Seo);
+export default connect((state) => state)(Seo);

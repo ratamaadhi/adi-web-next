@@ -1,15 +1,14 @@
-import { Dialog, Transition } from "@headlessui/react";
-import React, { Fragment } from "react";
+import { Dialog, Transition } from '@headlessui/react';
+import React, { Fragment } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 
-
-const Modal = ({
+function Modal({
   isOpen = false,
   closeModal,
-  title = "Title",
+  title = 'Title',
   children,
   withClose = true,
-}) => {
+}) {
   return (
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
@@ -51,7 +50,9 @@ const Modal = ({
                 as="div"
                 className="flex justify-between items-center"
               >
-                <h3 className="text-lg font-medium leading-6 text-secondary">{title}</h3>
+                <h3 className="text-lg font-medium leading-6 text-secondary">
+                  {title}
+                </h3>
                 {withClose && (
                   <button
                     type="button"
@@ -60,7 +61,7 @@ const Modal = ({
                   >
                     <HiOutlineX />
                   </button>
-              )}
+                )}
               </Dialog.Title>
 
               <div className="mt-8">{children}</div>
@@ -70,6 +71,6 @@ const Modal = ({
       </Dialog>
     </Transition>
   );
-};
+}
 
 export default Modal;

@@ -1,19 +1,19 @@
-import { GET_GLOBAL } from "../const";
+import { GET_GLOBAL } from '../const';
 
 const initialState = {
-  global: null
-}
+  global: null,
+};
 
 const appReducer = (state = initialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case GET_GLOBAL:
       return {
         ...state,
-        global: action.payload
-      }
+        global: action.payload,
+      };
     default:
       return state;
   }
-}
+};
 
-export default appReducer
+export default appReducer;

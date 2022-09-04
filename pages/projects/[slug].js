@@ -1,25 +1,25 @@
-import React from "react";
-import Layout from "../../components/layout";
-import Project from "../../components/section/project";
-import Seo from "../../components/seo";
-import { fetchAPI } from "../../lib/api";
+import React from 'react';
+import Layout from '../../components/layout';
+import Project from '../../components/section/project';
+import Seo from '../../components/seo';
+import { fetchAPI } from '../../lib/api';
 
-const Slugs = ({fallback, slug}) => {
+function Slugs({ fallback, slug }) {
   const seo = {
-    metaTitle: fallback["/projects/" + slug].name,
-    metaDescription: fallback["/projects/" + slug].descriptions,
-    shareImage: fallback["/projects/" + slug].thumbnail
+    metaTitle: fallback[`/projects/${slug}`].name,
+    metaDescription: fallback[`/projects/${slug}`].descriptions,
+    shareImage: fallback[`/projects/${slug}`].thumbnail,
   };
   return (
     <Layout>
-      <Seo seo={seo}/>
+      <Seo seo={seo} />
       <Project slug={slug} />
     </Layout>
   );
-};
+}
 
 export async function getStaticPaths() {
-  const projects = await fetchAPI("/projects");
+  const projects = await fetchAPI('/projects');
   const paths = projects.map((project) => ({
     params: { slug: project.slug },
   }));
@@ -30,14 +30,12 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   // Run API calls in parallel
-  const [selectedProject] = await Promise.all([
-    fetchAPI("/projects/" + slug)
-  ]);
+  const [selectedProject] = await Promise.all([fetchAPI(`/projects/${slug}`)]);
 
   return {
     props: {
       fallback: {
-        ["/projects/" + slug]: selectedProject,
+        [`/projects/${slug}`]: selectedProject,
       },
       slug,
     },
