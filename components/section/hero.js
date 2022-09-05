@@ -1,8 +1,13 @@
-import Image from 'next/image';
+// import Image from 'next/image';
+// import { myLoader } from '../../lib/media';
+// import { shimmer, toBase64 } from '../../util/toBase64';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { myLoader } from '../../lib/media';
-import { shimmer, toBase64 } from '../../util/toBase64';
 import Blob from '../blob/Blob';
+import { Canvas } from '@react-three/fiber';
+const ModelAnimated = dynamic(() => import('../ThreeD/RatamaAnimated'), {
+  ssr: false,
+});
 
 function Hero() {
   const variant = {
@@ -82,10 +87,10 @@ function Hero() {
             initial="exit"
             animate="animate"
             variants={variant}
-            className="relative w-[500px] h-fit rounded-md bg-gradient-to-br from-amber-700 to-indigo-900"
+            className="relative w-[500px] h-full rounded-md bg-gradient-to-br from-amber-700 to-indigo-900 overflow-hidden flex justify-center items-center"
           >
             <div className="absolute w-full h-full rounded-md bg-gradient-to-br from-amber-700 to-indigo-900 blur-md" />
-            <Image
+            {/* <Image
               loader={myLoader}
               src="/image-removebg-preview.png"
               alt="ratama adhi"
@@ -96,7 +101,17 @@ function Hero() {
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
                 shimmer(311, 414)
               )}`}
-            />
+            /> */}
+
+            <Canvas
+              camera={{ position: [2, 0, 12.25], fov: 15 }}
+              className="w-full h-full"
+            >
+              <ambientLight intensity={1.25} />
+              <ambientLight intensity={0.1} />
+              <directionalLight intensity={0.4} />
+              <ModelAnimated position={[1.225, -1.3, 7.5]} />
+            </Canvas>
           </motion.div>
         </div>
       </div>
