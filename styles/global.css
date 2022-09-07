@@ -46,11 +46,11 @@
 }
 
 .markdown-container figure {
-  @apply aspect-video mx-auto;
+  @apply mx-auto aspect-video;
 }
 
 .markdown-container > p > img {
-  @apply max-w-[240px] md:max-w-xs lg:max-w-lg mx-auto my-0;
+  @apply mx-auto my-0 max-w-[240px] md:max-w-xs lg:max-w-lg;
 }
 
 .markdown-container blockquote {
@@ -66,5 +66,5 @@
 .prose pre > pre,
 .prose-lg pre > pre {
   margin: 0 !important;
-  @apply md:m-0 m-0;
+  @apply m-0 md:m-0;
 }

@@ -21,9 +21,9 @@ function About({ about }) {
     return false;
   }
   return (
-    <div className="relative flex flex-col justify-start md:justify-center items-center w-full lg:w-[768px] lg:mx-auto min-h-[calc(100vh-112px)] pt-8 pb-28 px-8 md:px-20">
-      <div className="w-full flex flex-col md:flex-row-reverse justify-center items-center">
-        <div className="relative w-36 h-36 bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 rounded-full border-4 border-secondary overflow-hidden shadow-lg">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-8 pt-8 pb-28 md:justify-center md:px-20 lg:mx-auto lg:w-[768px]">
+      <div className="flex w-full flex-col items-center justify-center md:flex-row-reverse">
+        <div className="relative h-36 w-36 overflow-hidden rounded-full border-4 border-secondary bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 shadow-lg">
           <Image
             loader={myLoader}
             src="/hero-image.png"
@@ -36,29 +36,29 @@ function About({ about }) {
             className="object-cover"
           />
         </div>
-        <div className="flex flex-col mt-8 md:mt-0 md:flex-1">
-          <h1 className="text-secondary text-5xl font-bold self-start">
+        <div className="mt-8 flex flex-col md:mt-0 md:flex-1">
+          <h1 className="self-start text-5xl font-bold text-secondary">
             HELLO
           </h1>
-          <p className="text-secondary text-base leading-relaxed lg:w-3/4">
+          <p className="text-base leading-relaxed text-secondary lg:w-3/4">
             {about.description}
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-col mt-8">
-        <h1 className="text-secondary text-2xl font-bold tracking-wide lg:text-center">
+      <div className="mt-8 flex w-full flex-col">
+        <h1 className="text-2xl font-bold tracking-wide text-secondary lg:text-center">
           Current Tech
         </h1>
-        <div className="mt-4 w-full flex flex-wrap items-center lg:justify-center">
+        <div className="mt-4 flex w-full flex-wrap items-center lg:justify-center">
           {about.technologies.map((tech) => (
             <div
               key={tech.id}
-              className="flex flex-col justify-center items-center p-4"
+              className="flex flex-col items-center justify-center p-4"
             >
               <span className="text-4xl text-secondary">
                 {iconsTech(tech.name.toLowerCase())}
               </span>
-              <h1 className="text-secondary mt-2">{tech.name}</h1>
+              <h1 className="mt-2 text-secondary">{tech.name}</h1>
             </div>
           ))}
         </div>
