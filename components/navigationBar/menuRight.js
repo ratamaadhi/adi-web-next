@@ -66,18 +66,18 @@ function MenuRight({ toggleNav, setToggleNav }) {
             exit="exit"
             className={`fixed ${
               !scroll
-                ? 'top-28 border-t border-[#ffffff20] h-[calc(100vh-112px)]'
-                : 'top-20 border-t-0 h-[calc(100vh-80px)]'
-            } right-0 z-10 flex flex-col justify-start items-center w-full md:w-1/2 lg:hidden glassmorph transition-all duration-300 ease-in-out text-secondary`}
+                ? 'top-28 h-[calc(100vh-112px)] border-t border-[#ffffff20]'
+                : 'top-20 h-[calc(100vh-80px)] border-t-0'
+            } glassmorph right-0 z-10 flex w-full flex-col items-center justify-start text-secondary transition-all duration-300 ease-in-out md:w-1/2 lg:hidden`}
           >
             <Link href="/projects">
               <motion.div
                 variants={variant}
                 className={`${
                   path === '/projects'
-                    ? 'text-amber-600 font-medium text-2xl'
+                    ? 'text-2xl font-medium text-amber-600'
                     : 'text-secondary'
-                } w-full h-20 flex justify-center items-center font-semibold hover:text-amber-600 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
+                } flex h-20 w-full cursor-pointer items-center justify-center font-semibold transition-all duration-100 ease-in-out hover:text-2xl hover:text-amber-600`}
               >
                 Projects
               </motion.div>
@@ -87,9 +87,9 @@ function MenuRight({ toggleNav, setToggleNav }) {
                 variants={variant}
                 className={`${
                   path === '/about'
-                    ? 'text-amber-600 font-medium text-2xl'
+                    ? 'text-2xl font-medium text-amber-600'
                     : 'text-secondary'
-                } w-full h-20 flex justify-center items-center font-semibold hover:text-amber-600 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer`}
+                } flex h-20 w-full cursor-pointer items-center justify-center font-semibold transition-all duration-100 ease-in-out hover:text-2xl hover:text-amber-600`}
               >
                 About
               </motion.div>
@@ -97,7 +97,7 @@ function MenuRight({ toggleNav, setToggleNav }) {
             <motion.div
               onClick={() => openModal()}
               variants={variant}
-              className="px-3 py-2 rounded-md flex justify-center items-center font-semibold bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 hover:text-2xl transition-all duration-100 ease-in-out cursor-pointer"
+              className="flex cursor-pointer items-center justify-center rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
             >
               Contact Me
             </motion.div>

@@ -39,12 +39,12 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
 
   return (
     <nav
-      className={`sticky top-0 left-0 z-20 w-full 2xl:container 2xl:mx-auto flex justify-between items-center  text-secondary px-8 md:px-20 transition-all duration-300 ease-in-out ${
+      className={`sticky top-0 left-0 z-20 flex w-full items-center justify-between px-8 text-secondary  transition-all duration-300 ease-in-out md:px-20 2xl:container 2xl:mx-auto ${
         scroll ? 'glassmorph h-20 border-b border-[#ffffff20]' : 'h-28'
       } ${
         toggleNav &&
         windowWidth < 1024 &&
-        'border-b border-[#ffffff20] glassmorph'
+        'glassmorph border-b border-[#ffffff20]'
       }`}
     >
       <Link href="/">
@@ -52,7 +52,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
           variants={variant}
           animate="animate"
           initial="initial"
-          className="text-2xl w-auto h-8 font-bold blur-none cursor-pointer"
+          className="h-8 w-auto cursor-pointer text-2xl font-bold blur-none"
         >
           RA.
         </motion.div>
@@ -61,19 +61,19 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         variants={variant}
         initial="exit"
         animate="animate"
-        className="px-2 py-2 lg:flex hidden justify-end items-center w-[300px]"
+        className="hidden w-[300px] items-center justify-end px-2 py-2 lg:flex"
       >
         <Link href="/projects">
           <motion.a
             variants={variant}
-            className="flex justify-center items-center w-20"
+            className="flex w-20 items-center justify-center"
           >
             <div
               className={`${
                 path === '/projects'
-                  ? 'text-amber-600 font-medium'
+                  ? 'font-medium text-amber-600'
                   : 'text-secondary'
-              } hover:text-amber-600 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+              } cursor-pointer text-base font-medium transition-all duration-300 ease-in-out hover:text-amber-600`}
             >
               Projects
             </div>
@@ -82,14 +82,14 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         <Link href="/about">
           <motion.a
             variants={variant}
-            className="flex justify-center items-center w-20"
+            className="flex w-20 items-center justify-center"
           >
             <div
               className={`${
                 path === '/about'
-                  ? 'text-amber-600 font-medium'
+                  ? 'font-medium text-amber-600'
                   : 'text-secondary'
-              } hover:text-amber-600 font-medium text-base cursor-pointer transition-all duration-300 ease-in-out`}
+              } cursor-pointer text-base font-medium transition-all duration-300 ease-in-out hover:text-amber-600`}
             >
               About
             </div>
@@ -97,11 +97,11 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         </Link>
         <motion.div
           variants={variant}
-          className="flex justify-center items-center"
+          className="flex items-center justify-center"
         >
           <div
             onClick={() => setShowModal(!showModal)}
-            className="px-3 py-2 bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 rounded-md font-medium text-base cursor-pointer transition-all duration-300 ease-in-out"
+            className="cursor-pointer rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out"
           >
             Contact Me
           </div>
@@ -115,7 +115,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         </motion.div>
       </motion.div>
       <div
-        className="block lg:hidden text-2xl py-4 pl-4 text-secondary blur-none"
+        className="block py-4 pl-4 text-2xl text-secondary blur-none lg:hidden"
         onClick={() => setToggleNav(!toggleNav)}
       >
         {toggleNav ? <HiOutlineX /> : <HiOutlineMenuAlt2 />}

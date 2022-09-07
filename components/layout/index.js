@@ -7,7 +7,7 @@ function Layout({ children }) {
   return (
     <div
       id="homepage"
-      className="antialiased relative flex flex-col font-poppins min-h-screen bg-primary"
+      className="relative flex min-h-screen flex-col bg-primary font-poppins antialiased"
     >
       <TopNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
       <MenuRight toggleNav={toggleNav} setToggleNav={setToggleNav} />

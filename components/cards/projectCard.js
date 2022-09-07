@@ -6,7 +6,7 @@ import { shimmer, toBase64 } from '../../util/toBase64';
 
 function ProjectCard({ project }) {
   return (
-    <div className="relative w-56 md:w-60 h-auto bg-tertiary rounded-md overflow-hidden shadow-lg">
+    <div className="relative h-auto w-56 overflow-hidden rounded-md bg-tertiary shadow-lg md:w-60">
       <div className="relative w-full bg-secondary">
         <Image
           loader={myLoader}
@@ -24,26 +24,26 @@ function ProjectCard({ project }) {
           )}`}
         />
       </div>
-      <div className="p-3 w-full flex flex-col justify-center items-start">
+      <div className="flex w-full flex-col items-start justify-center p-3">
         <div className="w-full bg-tertiary text-lg font-semibold text-secondary">
           {project.name}
         </div>
-        <div className="w-full bg-tertiary text-xs leading-relaxed line-clamp-2 font-base text-secondary/70 mt-1">
+        <div className="font-base mt-1 w-full bg-tertiary text-xs leading-relaxed text-secondary/70 line-clamp-2">
           {project.descriptions}
         </div>
-        <div className="flex justify-start items-center flex-wrap mt-2">
+        <div className="mt-2 flex flex-wrap items-center justify-start">
           {project.technologies &&
             project.technologies.map((tech) => (
               <div
                 key={tech.id}
-                className="text-xss text-secondary/80 py-1 px-2 rounded bg-primary/50 tracking-wide mt-2 mr-2"
+                className="mt-2 mr-2 rounded bg-primary/50 py-1 px-2 text-xss tracking-wide text-secondary/80"
               >
                 {tech.name}
               </div>
             ))}
         </div>
         <Link href={`/projects/${project.slug}`}>
-          <div className="text-xss w-full px-2 py-1 text-center bg-primary hover:bg-primary/70 text-secondary font-semibold tracking-wide self-end rounded cursor-pointer mt-6 shadow-sm transition-all duration-300 ease-in-out">
+          <div className="mt-6 w-full cursor-pointer self-end rounded bg-primary px-2 py-1 text-center text-xss font-semibold tracking-wide text-secondary shadow-sm transition-all duration-300 ease-in-out hover:bg-primary/70">
             Read more
           </div>
         </Link>
