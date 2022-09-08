@@ -30,7 +30,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const { slug } = params;
   // Run API calls in parallel
-  const [selectedProject] = await Promise.all([fetchAPI(`/projects/${slug}`)]);
+  const selectedProject = await fetchAPI(`/projects/${slug}`);
 
   return {
     props: {
