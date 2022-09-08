@@ -79,7 +79,7 @@ function Project({ slug }) {
                     selectedProject?.thumbnail?.formats?.thumbnail?.height
                   )
                 )}`}
-                className="object-cover blur-sm filter"
+                className="object-cover"
               />
             )}
           </div>
