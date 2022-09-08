@@ -16,7 +16,7 @@ function Modal({
         className="fixed inset-0 z-30 overflow-y-auto"
         onClose={() => closeModal(false)}
       >
-        <div className="min-h-screen px-4 text-center bg-primary/75">
+        <div className="min-h-screen bg-primary/75 px-4 text-center">
           <Transition.Child
             as={Fragment}
             enter="ease-out duration-300"
@@ -45,10 +45,10 @@ function Modal({
             leaveFrom="opacity-100 scale-100"
             leaveTo="opacity-0 scale-95"
           >
-            <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-primary border border-tertiary shadow-xl rounded-xl">
+            <div className="my-8 inline-block w-full max-w-md transform overflow-hidden rounded-xl border border-tertiary bg-primary p-6 text-left align-middle shadow-xl transition-all">
               <Dialog.Title
                 as="div"
-                className="flex justify-between items-center"
+                className="flex items-center justify-between"
               >
                 <h3 className="text-lg font-medium leading-6 text-secondary">
                   {title}
@@ -56,7 +56,7 @@ function Modal({
                 {withClose && (
                   <button
                     type="button"
-                    className="inline-flex justify-center p-2 text-sm font-medium text-secondary border border-tertiary rounded-md"
+                    className="inline-flex justify-center rounded-md border border-tertiary p-2 text-sm font-medium text-secondary"
                     onClick={() => closeModal(false)}
                   >
                     <HiOutlineX />

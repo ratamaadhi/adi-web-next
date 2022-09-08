@@ -32,49 +32,49 @@ function HeroSec() {
       variants={variant}
       initial="initial"
       animate="animate"
-      className="2xl:container 2xl:mx-auto grid gap-x-2 grid-cols-6 grid-flow-row auto-rows-min sm:grid-cols-8 md:grid-cols-12  w-full min-h-[calc(100vh-160px)] mb-20 px-8 md:px-20 text-secondary"
+      className="mb-20 grid min-h-[calc(100vh-160px)] w-full grid-flow-row auto-rows-min grid-cols-6 gap-x-2 px-8  text-secondary sm:grid-cols-8 md:grid-cols-12 md:px-20 2xl:container 2xl:mx-auto"
     >
       <motion.div
         variants={variant}
-        className="row-start-1 col-start-1 col-end-7 sm:col-end-9 md:col-end-13 lg:col-end-8"
+        className="col-start-1 col-end-7 row-start-1 sm:col-end-9 md:col-end-13 lg:col-end-8"
       >
         <motion.h1
           variants={variant}
-          className="text-6xl sm:text-7xl font-semibold mt-7 md:mt-14"
+          className="mt-7 text-6xl font-semibold sm:text-7xl md:mt-14"
         >
           Ratama Adhi
         </motion.h1>
         <motion.h1
           variants={variant}
-          className="text-base sm:text-2xl font-light sm:font-extralight leading-9 tracking-wider pl-2"
+          className="pl-2 text-base font-light leading-9 tracking-wider sm:text-2xl sm:font-extralight"
         >
           a front-end developer
         </motion.h1>
       </motion.div>
       <motion.div
         variants={variant}
-        className="row-start-2 col-start-1 col-end-7 sm:col-end-9 md:col-end-13 lg:col-end-8"
+        className="col-start-1 col-end-7 row-start-2 sm:col-end-9 md:col-end-13 lg:col-end-8"
       >
         <motion.h1
           variants={variant}
-          className="text-3xl sm:text-5xl mt-14 font-medium italic"
+          className="mt-14 text-3xl font-medium italic sm:text-5xl"
         >
           &quot; Less is better &quot;
         </motion.h1>
         <motion.p
           variants={variant}
-          className="text-sm sm:text-lg font-normal sm:font-light leading-9 tracking-wider pl-2"
+          className="pl-2 text-sm font-normal leading-9 tracking-wider sm:text-lg sm:font-light"
         >
           - Minimalism
         </motion.p>
       </motion.div>
       <motion.div
         variants={variant}
-        className="row-start-3 col-start-1 col-end-7 sm:col-end-5 md:col-end-7 place-self-center"
+        className="col-start-1 col-end-7 row-start-3 place-self-center sm:col-end-5 md:col-end-7"
       >
         <motion.p
           variants={variant}
-          className="text-sm sm:text-lg font-normal sm:font-medium mt-8 sm:mt-0 lg:mt-8"
+          className="mt-8 text-sm font-normal sm:mt-0 sm:text-lg sm:font-medium lg:mt-8"
         >
           Minimalism is a tool that can assist you in finding freedom. Freedom
           from fear. Freedom from worry. Freedom from overwhelm. Freedom from
@@ -89,7 +89,7 @@ function HeroSec() {
         animate="animate"
         // transition={{duration: 3}}
         exit="initial"
-        className="relative w-full h-fit md:my-0 my-8 grayscale-[110%] hover:grayscale-0 transition duration-300 delay-100 bg-amber-700 row-start-4 sm:row-start-3 lg:row-start-1 col-start-1 md:col-start-7 sm:col-start-5 lg:col-start-8 xl:col-start-9 col-end-7 sm:col-end-9 md:col-end-13 lg:row-end-5"
+        className="relative col-start-1 col-end-7 row-start-4 my-8 h-fit w-full bg-amber-700 grayscale-[110%] transition delay-100 duration-300 hover:grayscale-0 sm:col-start-5 sm:col-end-9 sm:row-start-3 md:col-start-7 md:col-end-13 md:my-0 lg:col-start-8 lg:row-start-1 lg:row-end-5 xl:col-start-9"
       >
         <Image
           loader={myLoader}

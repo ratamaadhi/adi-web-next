@@ -1,8 +1,15 @@
-import Image from 'next/image';
+// import Image from 'next/image';
+// import { myLoader } from '../../lib/media';
+// import { shimmer, toBase64 } from '../../util/toBase64';
+import dynamic from 'next/dynamic';
 import { motion } from 'framer-motion';
-import { myLoader } from '../../lib/media';
-import { shimmer, toBase64 } from '../../util/toBase64';
 import Blob from '../blob/Blob';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import { useEffect, useRef } from 'react';
+const ModelAnimated = dynamic(() => import('../ThreeD/AvatarRatamaAnimated'), {
+  ssr: false,
+});
 
 function Hero() {
   const variant = {
@@ -29,10 +36,16 @@ function Hero() {
     },
   };
 
+  const orbitControlRef = useRef(null);
+
+  useEffect(() => {
+    console.log('orbitControlRef', orbitControlRef);
+  }, [orbitControlRef]);
+
   return (
-    <div className="relative flex justify-center items-center w-full min-h-[calc(100vh-112px)] pt-8 pb-16 px-8 md:px-20 2xl:container 2xl:mx-auto">
-      <div className="w-full h-fit flex justify-between flex-col lg:flex-row">
-        <div className="relative flex flex-col justify-center items-center w-full lg:w-2/3 text-secondary">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pt-8 pb-16 md:px-20 lg:flex-row 2xl:container 2xl:mx-auto">
+      <div className="flex h-full w-full justify-between">
+        <div className="relative flex w-full flex-col items-center justify-center text-secondary lg:w-2/3">
           <Blob />
           <motion.div
             variants={variant}
@@ -43,31 +56,31 @@ function Hero() {
           >
             <motion.h1
               variants={variant}
-              className="text-6xl sm:text-7xl font-semibold"
+              className="text-6xl font-semibold sm:text-7xl"
             >
               Ratama Adhi
             </motion.h1>
             <motion.p
               variants={variant}
-              className="text-base sm:text-2xl font-light sm:font-extralight leading-9 tracking-wider pl-2"
+              className="pl-2 text-base font-light leading-9 tracking-wider sm:text-2xl sm:font-extralight"
             >
               a front-end developer
             </motion.p>
             <motion.h1
               variants={variant}
-              className="text-3xl sm:text-5xl mt-10 lg:mt-14 font-medium italic"
+              className="mt-10 text-3xl font-medium italic sm:text-5xl lg:mt-14"
             >
               &quot; Less is better &quot;
             </motion.h1>
             <motion.p
               variants={variant}
-              className="text-sm sm:text-lg font-normal sm:font-light leading-9 tracking-wider pl-2"
+              className="pl-2 text-sm font-normal leading-9 tracking-wider sm:text-lg sm:font-light"
             >
               - Minimalism
             </motion.p>
             <motion.p
               variants={variant}
-              className="text-xs md:text-md font-normal sm:font-medium leading-relaxed mt-8 md:w-3/4 lg:w-[512px]"
+              className="md:text-md mt-8 text-xs font-normal leading-relaxed sm:font-medium md:w-3/4 lg:w-[512px]"
             >
               Minimalism is a tool that can assist you in finding freedom.
               Freedom from fear. Freedom from worry. Freedom from overwhelm.
@@ -77,27 +90,43 @@ function Hero() {
             </motion.p>
           </motion.div>
         </div>
-        <div className="w-full lg:w-1/3 flex justify-center lg:justify-end items-center lg:mt-0 mt-8">
-          <motion.div
-            initial="exit"
-            animate="animate"
-            variants={variant}
-            className="relative w-[500px] h-fit rounded-md bg-gradient-to-br from-amber-700 to-indigo-900"
+      </div>
+      <div className="mt-8 flex h-full w-full items-center justify-center lg:mt-0 lg:w-1/3 lg:justify-end">
+        <div className="relative flex h-full w-[500px] items-center justify-center">
+          {/* <Image
+            loader={myLoader}
+            src="/image-removebg-preview.png"
+            alt="ratama adhi"
+            layout="responsive"
+            width={500}
+            height={500}
+            placeholder="blur"
+            blurDataURL={`data:image/svg+xml;base64,${toBase64(
+              shimmer(311, 414)
+            )}`}
+          /> */}
+
+          <Canvas
+            camera={{ position: [2, 0, 7.25], fov: 15 }}
+            style={{
+              width: '100%',
+              height: '60vh',
+            }}
           >
-            <div className="absolute w-full h-full rounded-md bg-gradient-to-br from-amber-700 to-indigo-900 blur-md" />
-            <Image
-              loader={myLoader}
-              src="/image-removebg-preview.png"
-              alt="ratama adhi"
-              layout="responsive"
-              width={500}
-              height={500}
-              placeholder="blur"
-              blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(311, 414)
-              )}`}
+            <ambientLight intensity={1.25} />
+            <ambientLight intensity={0.1} />
+            <directionalLight intensity={0.4} />
+            <ModelAnimated
+              orbitControlRef={orbitControlRef}
+              position={[0.025, -0.9, 0]}
             />
-          </motion.div>
+            <OrbitControls
+              ref={orbitControlRef}
+              autoRotate={true}
+              enableZoom={false}
+              enablePan={false}
+            />
+          </Canvas>
         </div>
       </div>
     </div>
