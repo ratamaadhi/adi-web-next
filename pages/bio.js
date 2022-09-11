@@ -24,7 +24,7 @@ function BioLinks({ about, ...props }) {
   return (
     <div className="relative flex min-h-screen flex-col bg-primary font-poppins antialiased">
       <Seo />
-      <div className="relative mx-auto flex min-h-[calc(100vh-112px)] max-w-sm flex-col items-center p-8 md:px-20 lg:flex-row 2xl:container 2xl:mx-auto">
+      <div className="relative mx-auto flex min-h-[calc(100vh-112px)] max-w-sm flex-col items-center p-8">
         <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-secondary bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 shadow-lg">
           <Image
             loader={myLoader}
