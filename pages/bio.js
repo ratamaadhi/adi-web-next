@@ -8,7 +8,6 @@ import { shimmer, toBase64 } from '../util/toBase64';
 
 function BioLinks({ about, ...props }) {
   const { data: bioLinks, error, isLoading } = useFetch('/bio-links');
-  console.log('about', about);
 
   const LoadingLink = () => {
     return [3, 2].map((ar, i) => (
