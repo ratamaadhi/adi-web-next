@@ -110,7 +110,7 @@ function BioLinks({ about, ...props }) {
               <h1>Sayangnya tidak ada link</h1>
             </div>
           )}
-          {!isLoading && <LoadingLink />}
+          {isLoading && <LoadingLink />}
         </div>
       </div>
       <div className="sticky left-0 bottom-0 z-10 flex w-full justify-center bg-primary py-10 text-amber-600">
