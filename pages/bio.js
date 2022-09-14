@@ -3,6 +3,7 @@ import DynamicIcons from '../components/DynamicIcons';
 import Seo from '../components/seo';
 import { fetchAPI } from '../lib/api';
 import useAxiosFetch from '../lib/hooks/useAxiosFetch';
+import { myLoader } from '../lib/media';
 import { shimmer, toBase64 } from '../util/toBase64';
 
 function BioLinks({ about }) {
