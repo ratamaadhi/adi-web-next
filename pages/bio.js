@@ -69,7 +69,7 @@ function BioLinks({ about }) {
                 <div
                   key={i}
                   onClick={() => URL.url && window.open(URL.url, '_blank')}
-                  className={`relative flex w-full flex-col justify-center overflow-hidden rounded-md ${
+                  className={`relative flex w-full cursor-pointer flex-col justify-center overflow-hidden rounded-md ${
                     thumbnail
                       ? 'border border-amber-600/30 shadow-lg shadow-indigo-800/10'
                       : ' bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 shadow-lg shadow-indigo-800/10'
@@ -128,7 +128,8 @@ function BioLinks({ about }) {
       </div>
       <div className="sticky left-0 bottom-0 z-10 flex w-full justify-center bg-primary py-10 text-amber-600">
         <span className="text-xs">
-          <span className="font-semibold">Ratama Adhi</span> © 2022
+          <span className="font-semibold">Ratama Adhi</span> ©{' '}
+          {new Date().getFullYear()}
         </span>
       </div>
     </div>

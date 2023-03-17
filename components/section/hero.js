@@ -39,7 +39,7 @@ function Hero() {
   const orbitControlRef = useRef(null);
 
   useEffect(() => {
-    console.log('orbitControlRef', orbitControlRef);
+    console.log('');
   }, [orbitControlRef]);
 
   return (
