@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import Link from 'next/link';
 import { getStrapiMedia, myLoader } from '../../lib/media';
 import { shimmer, toBase64 } from '../../util/toBase64';
 
@@ -42,11 +41,16 @@ function ProjectCard({ project }) {
               </div>
             ))}
         </div>
-        <Link href={`/projects/${project.slug}`}>
+        <a
+          target={'_blank'}
+          href={`/projects/${project.slug}`}
+          rel="noreferrer"
+          className="w-full"
+        >
           <div className="mt-6 w-full cursor-pointer self-end rounded bg-primary px-2 py-1 text-center text-xss font-semibold tracking-wide text-secondary shadow-sm transition-all duration-300 ease-in-out hover:bg-primary/70">
             Read more
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   );
