@@ -11,8 +11,8 @@ function Projects({ projects, isLoading = false }) {
 
   function SkeletonProjectCard() {
     return (
-      <div className="relative h-auto w-56 overflow-hidden rounded-md bg-tertiary shadow-lg md:w-60">
-        <div className="relative h-32 w-full animate-pulse bg-secondary/30" />
+      <div className="relative h-auto w-full overflow-hidden rounded-md bg-tertiary shadow-lg md:w-60">
+        <div className="relative aspect-video animate-pulse bg-secondary/30" />
         <div className="flex w-full flex-col items-start justify-center space-y-3 p-3">
           <div className="w-full bg-tertiary text-sm font-semibold text-secondary">
             <div className="h-6 w-2/3 animate-pulse rounded bg-secondary/30" />
