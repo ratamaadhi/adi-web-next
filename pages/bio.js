@@ -2,21 +2,35 @@ import Image from 'next/image';
 import DynamicIcons from '../components/DynamicIcons';
 import Seo from '../components/seo';
 import { fetchAPI } from '../lib/api';
-import useAxiosFetch from '../lib/hooks/useAxiosFetch';
 import { myLoader } from '../lib/media';
 import { shimmer, toBase64 } from '../util/toBase64';
+import supabase from '../lib/supabase';
+import { useEffect, useState } from 'react';
 
 function BioLinks({ about }) {
-  const { data: bioLinks, isLoading } = useAxiosFetch(
-    'https://us-central1-function-biolink-notion.cloudfunctions.net/api'
-  );
+  const [bioLinks, setBioLinks] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const _bioLinks =
-    bioLinks &&
-    bioLinks.length &&
-    bioLinks
-      .filter((bio) => bio.status.select.name === 'published')
-      .sort((a, b) => +a.order.number - +b.order.number);
+  async function getBios() {
+    setIsLoading(true);
+    let { data: links, error } = await supabase
+      .from('links')
+      .select('*')
+      .eq('isPublish', true);
+
+    setIsLoading(false);
+    return { links, error };
+  }
+
+  async function initData() {
+    const bio = await getBios();
+    console.log('bio', bio);
+    if (bio.links) {
+      setBioLinks(bio.links);
+    } else {
+      setBioLinks([]);
+    }
+  }
 
   const LoadingLink = () => {
     return [3, 2].map((ar, i) => (
@@ -30,6 +44,11 @@ function BioLinks({ about }) {
       </div>
     ));
   };
+
+  useEffect(() => {
+    initData();
+  }, []);
+
   return (
     <div className="relative flex min-h-screen flex-col bg-primary font-poppins antialiased">
       <Seo />
@@ -56,19 +75,20 @@ function BioLinks({ about }) {
         {/* list bio links */}
         <div className="mt-6 w-full space-y-4 text-secondary">
           {!isLoading &&
-            _bioLinks.length > 0 &&
-            _bioLinks.map((bio, i) => {
+            bioLinks.length > 0 &&
+            bioLinks.map((bio, i) => {
               const {
-                Name: title,
-                URL,
+                title,
+                link: URL,
                 // desc: description,
-                ['react-icons']: icon,
+                // ['react-icons']: icon,
+                icon,
                 thumbnail,
               } = bio;
               return (
                 <div
                   key={i}
-                  onClick={() => URL.url && window.open(URL.url, '_blank')}
+                  onClick={() => URL && window.open(URL, '_blank')}
                   className={`relative flex w-full cursor-pointer flex-col justify-center overflow-hidden rounded-md ${
                     thumbnail
                       ? 'border border-amber-600/30 shadow-lg shadow-indigo-800/10'
@@ -90,21 +110,21 @@ function BioLinks({ about }) {
                       className="z-10 object-cover blur-sm"
                     />
                   )}
-                  {(icon.select.name || title.title[0].plain_text) && (
+                  {(icon || title) && (
                     <div
                       className="relative z-10 flex w-full items-center"
                       style={{ margin: 0 }}
                     >
-                      {icon.select.name && (
+                      {icon && (
                         <DynamicIcons
-                          code={icon.select.name.split('/')[0]}
+                          code={icon.split('/')[0]}
                           size={24}
                           className="absolute left-0 bottom-0 z-30 "
                         />
                       )}
-                      {title.title[0].plain_text && (
+                      {title && (
                         <h1 className={`relative z-30 w-full text-center`}>
-                          {title.title[0].plain_text}
+                          {title}
                         </h1>
                       )}
                     </div>
@@ -118,7 +138,7 @@ function BioLinks({ about }) {
               );
             })}
 
-          {!isLoading && _bioLinks.length <= 0 && (
+          {!isLoading && bioLinks.length <= 0 && (
             <div className="relative flex w-full flex-col justify-center overflow-hidden rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 shadow-lg shadow-indigo-800/10">
               <h1>Sayangnya tidak ada link</h1>
             </div>
