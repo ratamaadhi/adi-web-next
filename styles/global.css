@@ -22,17 +22,17 @@
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   width: auto;
-  @apply md:-ml-7 -ml-4; /* gutter size offset */
+  @apply -ml-4 md:-ml-7; /* gutter size offset */
 }
 .my-masonry-grid_column {
   background-clip: padding-box;
-  @apply md:pl-7 pl-4; /* gutter size */
+  @apply pl-4 md:pl-7; /* gutter size */
 }
 
 /* Style your items */
 .my-masonry-grid_column > div {
   /* change div to reference your elements you put in <Masonry> */
-  @apply md:mb-7 mb-4;
+  @apply mb-4 md:mb-7;
 }
 
 .markdown-container > h1,
