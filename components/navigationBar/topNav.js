@@ -39,13 +39,9 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
 
   return (
     <nav
-      className={`sticky top-0 left-0 z-20 flex w-full items-center justify-between px-8 text-secondary  transition-all duration-300 ease-in-out md:px-20 2xl:container 2xl:mx-auto ${
-        scroll ? 'glassmorph h-20 border-b border-[#ffffff20]' : 'h-28'
-      } ${
-        toggleNav &&
-        windowWidth < 1024 &&
-        'glassmorph border-b border-[#ffffff20]'
-      }`}
+      className={`sticky top-0 left-0 z-20 flex w-full items-center justify-between px-4 text-secondary  transition-all duration-300 ease-in-out md:px-20 2xl:container 2xl:mx-auto ${
+        scroll ? 'glassmorph h-20' : 'h-28'
+      } ${toggleNav && windowWidth < 1024 && 'glassmorph'}`}
     >
       <Link href="/">
         <motion.div

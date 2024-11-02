@@ -6,14 +6,17 @@ import { fetchAPI } from '../../lib/api';
 import useFetch from '../../lib/hooks/useFetch';
 
 function ProjectsPage({ projects }) {
-  const { data: newProjects, isLoading } = useFetch('/projects');
+  const { data: newProjects, isLoading, error } = useFetch('/projects');
   const seo = {
     metaTitle: 'Projects',
   };
   return (
     <Layout>
       <Seo seo={seo} />
-      <Projects projects={newProjects ?? projects} isLoading={isLoading} />
+      <Projects
+        projects={!error ? newProjects : projects}
+        isLoading={isLoading}
+      />
     </Layout>
   );
 }

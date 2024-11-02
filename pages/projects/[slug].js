@@ -13,7 +13,7 @@ function Slugs({ fallback, slug }) {
   return (
     <Layout>
       <Seo seo={seo} />
-      <Project slug={slug} />
+      <Project slug={slug} dataFallback={fallback[`/projects/${slug}`]} />
     </Layout>
   );
 }

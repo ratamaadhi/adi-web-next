@@ -1,12 +1,12 @@
 import Mansory from 'react-masonry-css';
 import ProjectCard from '../cards/projectCard';
 
-function Projects({ projects, isLoading }) {
+function Projects({ projects, isLoading = false }) {
   const breakPoints = {
     default: 3,
     1024: isLoading || projects.length >= 3 ? 3 : 2,
     768: 2,
-    425: 1,
+    425: 2,
   };
 
   function SkeletonProjectCard() {
@@ -34,7 +34,7 @@ function Projects({ projects, isLoading }) {
     );
   }
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-8 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-4 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
       <div className="mb-14 h-auto w-full bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 bg-clip-text text-center text-2xl text-secondary transition-all duration-300 ease-in-out hover:text-transparent">
         My Projects
       </div>

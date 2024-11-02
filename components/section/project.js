@@ -10,13 +10,19 @@ import MdFormat from '../../util/md';
 import { getStrapiMedia, myLoader } from '../../lib/media';
 import { shimmer, toBase64 } from '../../util/toBase64';
 
-function Project({ slug }) {
+function Project({ slug, dataFallback = {} }) {
   const pageRoute = useRouter();
-  const { data: selectedProject, isLoading } = useFetch(`/projects/${slug}`);
+  const {
+    data: selectedProject,
+    isLoading,
+    error,
+  } = useFetch(`/projects/${slug}`);
   const traceRoute = pageRoute.asPath.split('/').filter((fil) => fil !== '');
 
+  const dataProject = !error ? selectedProject : dataFallback;
+
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-primary px-8 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-primary px-4 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
       <div className="flex w-full items-center justify-start space-x-6 md:mx-auto md:w-8/12">
         <div
           onClick={() => pageRoute.back()}
@@ -48,7 +54,7 @@ function Project({ slug }) {
               isLoading && 'h-10 w-1/2 animate-pulse rounded-md bg-secondary/30'
             }`}
           >
-            {selectedProject && selectedProject.name}
+            {dataProject && dataProject.name}
           </h2>
         </div>
         <div className="mx-auto mb-4 flex h-auto w-full items-center justify-between text-secondary">
@@ -57,7 +63,7 @@ function Project({ slug }) {
               isLoading && 'h-5 w-3/4 animate-pulse rounded-md bg-secondary/30'
             }`}
           >
-            {selectedProject && selectedProject.descriptions}
+            {dataProject && dataProject.descriptions}
           </h3>
         </div>
         <div className="mx-auto mb-6 flex w-full items-center justify-between">
@@ -66,17 +72,17 @@ function Project({ slug }) {
               isLoading ? 'animate-pulse bg-secondary/30' : 'bg-tertiary'
             }`}
           >
-            {selectedProject && (
+            {dataProject && (
               <Image
                 loader={myLoader}
-                src={getStrapiMedia(selectedProject?.thumbnail)}
-                alt={selectedProject?.thumbnail?.hash}
+                src={getStrapiMedia(dataProject?.thumbnail)}
+                alt={dataProject?.thumbnail?.hash}
                 layout="fill"
                 placeholder="blur"
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(
-                    selectedProject?.thumbnail?.formats?.thumbnail?.width,
-                    selectedProject?.thumbnail?.formats?.thumbnail?.height
+                    dataProject?.thumbnail?.formats?.thumbnail?.width,
+                    dataProject?.thumbnail?.formats?.thumbnail?.height
                   )
                 )}`}
                 className="object-cover"
@@ -89,9 +95,9 @@ function Project({ slug }) {
             isLoading && 'h-3 animate-pulse rounded-md bg-secondary/30'
           }`}
         >
-          {selectedProject &&
-            selectedProject.technologies &&
-            selectedProject.technologies.map((tech) => (
+          {dataProject &&
+            dataProject.technologies &&
+            dataProject.technologies.map((tech) => (
               <div
                 key={tech.id}
                 className="mt-2 mr-2 flex items-center justify-center rounded-md bg-tertiary py-1 px-2 text-xss tracking-wide text-secondary sm:text-xs"
@@ -101,9 +107,9 @@ function Project({ slug }) {
             ))}
         </div>
         <div className="markdown-container prose prose-sm mx-auto h-full w-full max-w-none text-secondary md:prose-lg">
-          {selectedProject && (
+          {dataProject && (
             <MdFormat
-              markdown={selectedProject.content}
+              markdown={dataProject.content}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
             />

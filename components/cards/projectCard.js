@@ -5,7 +5,7 @@ import { shimmer, toBase64 } from '../../util/toBase64';
 
 function ProjectCard({ project }) {
   return (
-    <div className="relative h-auto w-56 overflow-hidden rounded-md bg-tertiary shadow-lg md:w-60">
+    <div className="relative h-auto w-full overflow-hidden rounded-md bg-tertiary shadow-lg md:w-60">
       <div className="relative w-full bg-secondary">
         <Image
           loader={myLoader}
