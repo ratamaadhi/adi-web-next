@@ -1,29 +1,42 @@
-# Next.js + Tailwind CSS Example
+# Ratama Adhi Website
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v2.2)](https://blog.tailwindcss.com/tailwindcss-2-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+This is my personal portfolio website showcasing my projects and skills.
 
-It uses the new [`Just-in-Time Mode`](https://tailwindcss.com/docs/just-in-time-mode) for Tailwind CSS.
+## Features
 
-## Preview
+- About Me section
+- Skills & Technologies
+- Project Portfolio
+- Contact Information
 
-Preview the example live on [StackBlitz](http://stackblitz.com/):
+## Technologies Used
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- HTML5
+- CSS3
+- JavaScript
+- Node.js
+- React.js
+- Next.js
+- Express.js
+- MongoDB
 
-## Deploy your own
+## Contact
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example):
+Feel free to reach out to me:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+- Email: ratama.adhi@gmail.com
+- LinkedIn: [Ratama Adhi](https://linkedin.com/in/ratamaadhi)
+- GitHub: [ratamaadhi](https://github.com/ratamaadhi)
 
-## How to use
+## Installation
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
-
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-# or
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
+```
+git clone https://github.com/ratamaadhi/adi-web-next.git
+cd adi-web-next
+yarn install
+yarn start
 ```
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## License
+
+MIT License - feel free to use this project as a template for your own portfolio!
