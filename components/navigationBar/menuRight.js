@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useScroll from '../../lib/hooks/useScroll';
 import Modal from '../modal/Modal';
 import FormContactMe from '../form/FormContactMe';
+import { linkCV } from '../../util/const';
+import supabase from '../../lib/supabase';
 
 function MenuRight({ toggleNav, setToggleNav }) {
   const [showModal, setShowModal] = useState(false);
+  const [cv, setCv] = useState(linkCV);
+
   const { scroll } = useScroll({ limit: 30 });
   const router = useRouter();
   const path = router.route;
@@ -35,17 +39,6 @@ function MenuRight({ toggleNav, setToggleNav }) {
     },
   };
 
-  // const item = {
-  //   initial: { opacity: 0, x: 300 },
-  //   animate: {
-  //     opacity: 1,
-  //     x: 0,
-  //     transition: {
-  //       delayChildren: 0.3,
-  //     },
-  //   },
-  // };
-
   function openModal() {
     setShowModal(true);
     setToggleNav(false);
@@ -54,6 +47,22 @@ function MenuRight({ toggleNav, setToggleNav }) {
   function closeModal() {
     setShowModal(false);
   }
+
+  async function getCv() {
+    let { data, error } = await supabase
+      .from('const')
+      .select('url')
+      .eq('name', 'cv');
+    return { data, error };
+  }
+
+  useEffect(() => {
+    const initData = async () => {
+      const data = await getCv();
+      setCv(data?.data[0]?.url ?? linkCV);
+    };
+    initData();
+  }, []);
 
   return (
     <>
@@ -95,11 +104,28 @@ function MenuRight({ toggleNav, setToggleNav }) {
               </motion.div>
             </Link>
             <motion.div
-              onClick={() => openModal()}
               variants={variant}
-              className="flex cursor-pointer items-center justify-center rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
+              className="flex h-20 items-center justify-center"
             >
-              Contact Me
+              <a
+                className="cursor-pointer rounded-md border border-secondary bg-gradient-to-br px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
+                href={cv}
+                rel="noreferrer"
+                target="_blank"
+              >
+                Download CV
+              </a>
+            </motion.div>
+            <motion.div
+              variants={variant}
+              className="flex h-20 items-center justify-center"
+            >
+              <div
+                className="cursor-pointer rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
+                onClick={() => openModal()}
+              >
+                Contact Me
+              </div>
             </motion.div>
           </motion.div>
         )}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiOutlineMenuAlt2, HiOutlineX } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -7,15 +7,26 @@ import useInnerWidth from '../../lib/hooks/useInnerWidth';
 import useScroll from '../../lib/hooks/useScroll';
 import Modal from '../modal/Modal';
 import FormContactMe from '../form/FormContactMe';
+import { linkCV } from '../../util/const';
+import supabase from '../../lib/supabase';
 
 function TopNav({ toggleNav, setToggleNav = () => {} }) {
   const [showModal, setShowModal] = useState(false);
+  const [cv, setCv] = useState(linkCV);
 
   const { scroll } = useScroll({ limit: 30 });
   const router = useRouter();
   const path = router.route;
 
   const { windowWidth } = useInnerWidth();
+
+  async function getCv() {
+    let { data, error } = await supabase
+      .from('const')
+      .select('url')
+      .eq('name', 'cv');
+    return { data, error };
+  }
 
   const variant = {
     initial: {
@@ -37,6 +48,14 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
     },
   };
 
+  useEffect(() => {
+    const initData = async () => {
+      const data = await getCv();
+      setCv(data?.data[0]?.url ?? linkCV);
+    };
+    initData();
+  }, []);
+
   return (
     <nav
       className={`sticky top-0 left-0 z-20 flex w-full items-center justify-between px-4 text-secondary  transition-all duration-300 ease-in-out md:px-20 2xl:container 2xl:mx-auto ${
@@ -57,7 +76,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         variants={variant}
         initial="exit"
         animate="animate"
-        className="hidden w-[300px] items-center justify-end px-2 py-2 lg:flex"
+        className="hidden w-fit items-center justify-end gap-4 px-2 py-2 lg:flex"
       >
         <Link href="/projects">
           <motion.a
@@ -91,6 +110,18 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
             </div>
           </motion.a>
         </Link>
+
+        <motion.a
+          variants={variant}
+          className="flex items-center justify-center"
+          href={cv}
+          target="_blank"
+        >
+          <div className="cursor-pointer rounded-md border border-secondary px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out">
+            Download CV
+          </div>
+        </motion.a>
+
         <motion.div
           variants={variant}
           className="flex items-center justify-center"

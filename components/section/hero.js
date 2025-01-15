@@ -43,7 +43,7 @@ function Hero() {
   }, [orbitControlRef]);
 
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pt-8 pb-16 md:px-20 lg:flex-row 2xl:container 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pt-8 pb-16 md:px-20 lg:flex-row 2xl:container 2xl:mx-auto 2xl:min-h-full">
       <div className="flex h-full w-full justify-between">
         <div className="relative flex w-full flex-col items-center justify-center text-secondary lg:w-2/3">
           <Blob />
@@ -92,26 +92,14 @@ function Hero() {
         </div>
       </div>
       <div className="mt-8 flex h-full w-full items-center justify-center lg:mt-0 lg:w-1/3 lg:justify-end">
-        <div className="relative flex h-full w-[500px] items-center justify-center">
-          {/* <Image
-            loader={myLoader}
-            src="/image-removebg-preview.png"
-            alt="ratama adhi"
-            layout="responsive"
-            width={500}
-            height={500}
-            placeholder="blur"
-            blurDataURL={`data:image/svg+xml;base64,${toBase64(
-              shimmer(311, 414)
-            )}`}
-          /> */}
-
+        <div className="relative flex h-full max-h-[630px] w-[500px] items-center justify-center">
           <Canvas
             camera={{ position: [2, 0, 7.25], fov: 15 }}
             style={{
               width: '100%',
               height: '60vh',
             }}
+            className="h-[60vh] w-full lg:max-h-[630px]"
           >
             <ambientLight intensity={1.25} />
             <ambientLight intensity={0.1} />
@@ -125,6 +113,8 @@ function Hero() {
               autoRotate={true}
               enableZoom={false}
               enablePan={false}
+              minPolarAngle={Math.PI / 2}
+              maxPolarAngle={Math.PI / 2}
             />
           </Canvas>
         </div>
