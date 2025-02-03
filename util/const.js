@@ -1,2 +1,2 @@
 export const linkCV =
-  'https://file.notion.so/f/f/f46a0f61-34e0-496e-a677-e7a4a704a3b5/bc35b845-a903-44a8-9acc-3b42e03a9e67/Resume_Ratama_Adhi_Nugraha_14012025.pdf?table=block&id=17bbb7b8-51bb-8037-9a56-d1dd3cdc4486&spaceId=f46a0f61-34e0-496e-a677-e7a4a704a3b5&expirationTimestamp=1736985600000&signature=Ep8y2bKqeAAGbskhB4vEYlEIp-ZPuEygXyqirhMd4Fg&downloadName=Resume+Ratama+Adhi+Nugraha+14012025.pdf';
+  'https://drive.google.com/file/d/1OyUenw3CQRJAnkzH9KDiy3ualmKq-i8B/view?usp=sharing';

@@ -8,7 +8,7 @@ import useScroll from '../../lib/hooks/useScroll';
 import Modal from '../modal/Modal';
 import FormContactMe from '../form/FormContactMe';
 import { linkCV } from '../../util/const';
-import supabase from '../../lib/supabase';
+import { fetchAPI } from '../../lib/api';
 
 function TopNav({ toggleNav, setToggleNav = () => {} }) {
   const [showModal, setShowModal] = useState(false);
@@ -20,13 +20,13 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
 
   const { windowWidth } = useInnerWidth();
 
-  async function getCv() {
-    let { data, error } = await supabase
-      .from('const')
-      .select('url')
-      .eq('name', 'cv');
-    return { data, error };
-  }
+  // async function getCv() {
+  //   let { data, error } = await supabase
+  //     .from('const')
+  //     .select('url')
+  //     .eq('name', 'cv');
+  //   return { data, error };
+  // }
 
   const variant = {
     initial: {
@@ -50,8 +50,8 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
 
   useEffect(() => {
     const initData = async () => {
-      const data = await getCv();
-      setCv(data?.data[0]?.url ?? linkCV);
+      const data = await fetchAPI('/bio-links?name_eq=cv');
+      setCv(data[0]?.url ?? linkCV);
     };
     initData();
   }, []);
