@@ -6,7 +6,9 @@ import { motion } from 'framer-motion';
 import Blob from '../blob/Blob';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
+import ClientOnly from '../ClientOnly';
+
 const ModelAnimated = dynamic(() => import('../ThreeD/AvatarRatamaAnimated'), {
   ssr: false,
 });
@@ -38,12 +40,8 @@ function Hero() {
 
   const orbitControlRef = useRef(null);
 
-  useEffect(() => {
-    console.log('');
-  }, [orbitControlRef]);
-
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pt-8 pb-16 md:px-20 lg:flex-row 2xl:container 2xl:mx-auto 2xl:min-h-full">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pb-16 pt-8 2xl:container md:px-20 lg:flex-row 2xl:mx-auto 2xl:min-h-full">
       <div className="flex h-full w-full justify-between">
         <div className="relative flex w-full flex-col items-center justify-center text-secondary lg:w-2/3">
           <Blob />
@@ -93,30 +91,32 @@ function Hero() {
       </div>
       <div className="mt-8 flex h-full w-full items-center justify-center lg:mt-0 lg:w-1/3 lg:justify-end">
         <div className="relative flex h-full max-h-[630px] w-[500px] items-center justify-center">
-          <Canvas
-            camera={{ position: [2, 0, 7.25], fov: 15 }}
-            style={{
-              width: '100%',
-              height: '60vh',
-            }}
-            className="h-[60vh] w-full lg:max-h-[630px]"
-          >
-            <ambientLight intensity={1.25} />
-            <ambientLight intensity={0.1} />
-            <directionalLight intensity={0.4} />
-            <ModelAnimated
-              orbitControlRef={orbitControlRef}
-              position={[0.025, -0.9, 0]}
-            />
-            <OrbitControls
-              ref={orbitControlRef}
-              autoRotate={true}
-              enableZoom={false}
-              enablePan={false}
-              minPolarAngle={Math.PI / 2}
-              maxPolarAngle={Math.PI / 2}
-            />
-          </Canvas>
+          <ClientOnly>
+            <Canvas
+              camera={{ position: [2, 0, 7.25], fov: 15 }}
+              style={{
+                width: '100%',
+                height: '60vh',
+              }}
+              className="h-[60vh] w-full lg:max-h-[630px]"
+            >
+              <ambientLight intensity={3.25} />
+              <ambientLight intensity={0.1} />
+              <directionalLight intensity={2.4} />
+              <ModelAnimated
+                orbitControlRef={orbitControlRef}
+                position={[0.025, -0.9, 0]}
+              />
+              <OrbitControls
+                ref={orbitControlRef}
+                autoRotate={true}
+                enableZoom={false}
+                enablePan={false}
+                minPolarAngle={Math.PI / 2}
+                maxPolarAngle={Math.PI / 2}
+              />
+            </Canvas>
+          </ClientOnly>
         </div>
       </div>
     </div>

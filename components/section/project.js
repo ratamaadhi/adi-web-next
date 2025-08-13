@@ -22,7 +22,7 @@ function Project({ slug, dataFallback = {} }) {
   const dataProject = !error ? selectedProject : dataFallback;
 
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-primary px-4 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-primary px-4 pb-16 pt-8 2xl:container md:px-20 2xl:mx-auto">
       <div className="flex w-full items-center justify-start space-x-6 md:mx-auto md:w-8/12">
         <div
           onClick={() => pageRoute.back()}
@@ -100,7 +100,7 @@ function Project({ slug, dataFallback = {} }) {
             dataProject.technologies.map((tech) => (
               <div
                 key={tech.id}
-                className="mt-2 mr-2 flex items-center justify-center rounded-md bg-tertiary py-1 px-2 text-xss tracking-wide text-secondary sm:text-xs"
+                className="mr-2 mt-2 flex items-center justify-center rounded-md bg-tertiary px-2 py-1 text-xss tracking-wide text-secondary sm:text-xs"
               >
                 {tech.name}
               </div>

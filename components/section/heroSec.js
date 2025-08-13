@@ -32,7 +32,7 @@ function HeroSec() {
       variants={variant}
       initial="initial"
       animate="animate"
-      className="mb-20 grid min-h-[calc(100vh-160px)] w-full grid-flow-row auto-rows-min grid-cols-6 gap-x-2 px-8  text-secondary sm:grid-cols-8 md:grid-cols-12 md:px-20 2xl:container 2xl:mx-auto"
+      className="mb-20 grid min-h-[calc(100vh-160px)] w-full grid-flow-row auto-rows-min grid-cols-6 gap-x-2 px-8  text-secondary 2xl:container sm:grid-cols-8 md:grid-cols-12 md:px-20 2xl:mx-auto"
     >
       <motion.div
         variants={variant}
