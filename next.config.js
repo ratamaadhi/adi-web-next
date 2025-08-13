@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
+
   images: {
-    domains: ['s3.us-west-2.amazonaws.com', 'res.cloudinary.com'],
+    remotePatterns: [
+      new URL('https://s3.us-west-2.amazonaws.com/**'),
+      new URL('https://res.cloudinary.com/**'),
+    ],
   },
 };
 

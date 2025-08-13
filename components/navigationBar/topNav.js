@@ -13,6 +13,7 @@ import { fetchAPI } from '../../lib/api';
 function TopNav({ toggleNav, setToggleNav = () => {} }) {
   const [showModal, setShowModal] = useState(false);
   const [cv, setCv] = useState(linkCV);
+  const [navClasses, setNavClasses] = useState('');
 
   const { scroll } = useScroll({ limit: 30 });
   const router = useRouter();
@@ -56,12 +57,17 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
     initData();
   }, []);
 
+  useEffect(() => {
+    const baseClasses =
+      'sticky left-0 top-0 z-20 flex w-full items-center justify-between px-4 text-secondary transition-all duration-300 ease-in-out 2xl:container md:px-20 2xl:mx-auto';
+    const dynamicClasses = `${scroll ? 'glassmorph h-20' : 'h-28'} ${
+      toggleNav && windowWidth < 1024 && 'glassmorph'
+    }`;
+    setNavClasses(`${baseClasses} ${dynamicClasses}`);
+  }, [scroll, toggleNav, windowWidth]);
+
   return (
-    <nav
-      className={`sticky top-0 left-0 z-20 flex w-full items-center justify-between px-4 text-secondary  transition-all duration-300 ease-in-out md:px-20 2xl:container 2xl:mx-auto ${
-        scroll ? 'glassmorph h-20' : 'h-28'
-      } ${toggleNav && windowWidth < 1024 && 'glassmorph'}`}
-    >
+    <nav className={navClasses}>
       <Link href="/">
         <motion.div
           variants={variant}
@@ -79,7 +85,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         className="hidden w-fit items-center justify-end gap-4 px-2 py-2 lg:flex"
       >
         <Link href="/projects">
-          <motion.a
+          <motion.div
             variants={variant}
             className="flex w-20 items-center justify-center"
           >
@@ -92,10 +98,10 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
             >
               Projects
             </div>
-          </motion.a>
+          </motion.div>
         </Link>
         <Link href="/about">
-          <motion.a
+          <motion.div
             variants={variant}
             className="flex w-20 items-center justify-center"
           >
@@ -108,7 +114,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
             >
               About
             </div>
-          </motion.a>
+          </motion.div>
         </Link>
 
         <motion.a
@@ -122,7 +128,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
           </div>
         </motion.a>
 
-        <motion.div
+        {/* <motion.div
           variants={variant}
           className="flex items-center justify-center"
         >
@@ -139,7 +145,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
           >
             <FormContactMe />
           </Modal>
-        </motion.div>
+        </motion.div> */}
       </motion.div>
       <div
         className="block py-4 pl-4 text-2xl text-secondary blur-none lg:hidden"

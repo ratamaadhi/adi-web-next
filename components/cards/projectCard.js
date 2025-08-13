@@ -27,7 +27,7 @@ function ProjectCard({ project }) {
         <div className="w-full bg-tertiary text-lg font-semibold text-secondary">
           {project.name}
         </div>
-        <div className="font-base mt-1 w-full bg-tertiary text-xs leading-relaxed text-secondary/70 line-clamp-2">
+        <div className="font-base mt-1 line-clamp-2 w-full bg-tertiary text-xs leading-relaxed text-secondary/70">
           {project.descriptions}
         </div>
         <div className="mt-2 flex flex-wrap items-center justify-start">
@@ -35,7 +35,7 @@ function ProjectCard({ project }) {
             project.technologies.map((tech) => (
               <div
                 key={tech.id}
-                className="mt-2 mr-2 rounded bg-primary/50 py-1 px-2 text-xss tracking-wide text-secondary/80"
+                className="mr-2 mt-2 rounded bg-primary/50 px-2 py-1 text-xss tracking-wide text-secondary/80"
               >
                 {tech.name}
               </div>

@@ -17,14 +17,14 @@ function Projects({ projects, isLoading = false }) {
           <div className="w-full bg-tertiary text-sm font-semibold text-secondary">
             <div className="h-6 w-2/3 animate-pulse rounded bg-secondary/30" />
           </div>
-          <div className="w-full space-y-2 bg-tertiary text-xs font-medium leading-relaxed text-tertiary line-clamp-2">
+          <div className="line-clamp-2 w-full space-y-2 bg-tertiary text-xs font-medium leading-relaxed text-tertiary">
             <div className="h-3 w-4/5 animate-pulse rounded bg-secondary/30" />
             <div className="h-3 w-3/5 animate-pulse rounded bg-secondary/30" />
           </div>
           <div className="flex flex-wrap items-center justify-start">
-            <div className="mt-2 mr-2 w-8 animate-pulse rounded bg-secondary/30 py-2 px-3 text-xss text-secondary" />
-            <div className="mt-2 mr-2 w-8 animate-pulse rounded bg-secondary/30 py-2 px-3 text-xss text-secondary" />
-            <div className="mt-2 mr-2 w-8 animate-pulse rounded bg-secondary/30 py-2 px-3 text-xss text-secondary" />
+            <div className="mr-2 mt-2 w-8 animate-pulse rounded bg-secondary/30 px-3 py-2 text-xss text-secondary" />
+            <div className="mr-2 mt-2 w-8 animate-pulse rounded bg-secondary/30 px-3 py-2 text-xss text-secondary" />
+            <div className="mr-2 mt-2 w-8 animate-pulse rounded bg-secondary/30 px-3 py-2 text-xss text-secondary" />
           </div>
           <div className="w-full animate-pulse self-end rounded bg-primary/70 px-2 py-1 text-center text-xss text-secondary">
             ---- ----
@@ -34,7 +34,7 @@ function Projects({ projects, isLoading = false }) {
     );
   }
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-4 pt-8 pb-16 md:px-20 2xl:container 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-4 pb-16 pt-8 2xl:container md:px-20 2xl:mx-auto">
       <div className="mb-14 h-auto w-full bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 bg-clip-text text-center text-2xl text-secondary transition-all duration-300 ease-in-out hover:text-transparent">
         My Projects
       </div>

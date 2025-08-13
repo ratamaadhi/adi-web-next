@@ -88,7 +88,7 @@ function MenuContent({ scroll, path, cv, openModal, variant }) {
       />
       <MenuLink href="/about" path={path} text="About" variant={variant} />
       <CVDownloadButton cv={cv} variant={variant} />
-      <ContactMeButton openModal={openModal} variant={variant} />
+      {/* <ContactMeButton openModal={openModal} variant={variant} /> */}
     </motion.div>
   );
 }

@@ -2,7 +2,7 @@ import React from 'react';
 
 function Blob() {
   return (
-    <div className="absolute -top-20 z-0 h-[320px] w-[320px] blur-lg md:-top-28 md:left-20 lg:left-16 lg:-top-32 lg:h-[375px] lg:w-[375px] xl:-top-40 xl:left-0 xl:h-[425px] xl:w-[425px] xl:blur-xl">
+    <div className="absolute -top-20 z-0 h-[320px] w-[320px] blur-lg md:-top-28 md:left-20 lg:-top-32 lg:left-16 lg:h-[375px] lg:w-[375px] xl:-top-40 xl:left-0 xl:h-[425px] xl:w-[425px] xl:blur-xl">
       <svg
         viewBox="0 0 500 500"
         xmlns="http://www.w3.org/2000/svg"

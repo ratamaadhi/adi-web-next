@@ -59,7 +59,7 @@ function FormContactMe() {
           required
           disabled={isLoading}
         />
-        <label className="absolute left-0 -top-3.5 text-sm text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:left-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
+        <label className="absolute -top-3.5 left-0 text-sm text-gray-400 transition-all peer-placeholder-shown:left-0 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
           Full Name
         </label>
       </div>
@@ -78,7 +78,7 @@ function FormContactMe() {
           required
           disabled={isLoading}
         />
-        <label className="absolute left-0 -top-3.5 text-sm text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:left-0 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
+        <label className="absolute -top-3.5 left-0 text-sm text-gray-400 transition-all peer-placeholder-shown:left-0 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-3.5 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
           Email
         </label>
       </div>
@@ -96,7 +96,7 @@ function FormContactMe() {
           required
           disabled={isLoading}
         />
-        <label className="absolute left-0 -top-8 text-sm text-gray-400 transition-all peer-placeholder-shown:top-2 peer-placeholder-shown:left-3 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-8 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
+        <label className="absolute -top-8 left-0 text-sm text-gray-400 transition-all peer-placeholder-shown:left-3 peer-placeholder-shown:top-2 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-500 peer-focus:-top-8 peer-focus:left-0 peer-focus:text-sm peer-focus:text-gray-400">
           Message
         </label>
       </div>

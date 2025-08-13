@@ -21,7 +21,7 @@ function About({ about }) {
     return false;
   }
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-8 pt-8 pb-28 md:justify-center md:px-20 lg:mx-auto lg:w-[768px]">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-start px-8 pb-28 pt-8 md:justify-center md:px-20 lg:mx-auto lg:w-[768px]">
       <div className="flex w-full flex-col items-center justify-center md:flex-row-reverse">
         <div className="relative h-36 w-36 overflow-hidden rounded-full border-4 border-secondary bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 shadow-lg">
           <Image

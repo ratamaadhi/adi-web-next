@@ -80,7 +80,7 @@ function BioLinks({ about }) {
               <DynamicIcons
                 code={icon.split('/')[0]}
                 size={24}
-                className="absolute left-0 bottom-0 z-30 "
+                className="absolute bottom-0 left-0 z-30 "
               />
             )}
             {title && (
@@ -114,7 +114,7 @@ function BioLinks({ about }) {
         <ProfileSection />
         <BioLinksList />
       </div>
-      <div className="sticky left-0 bottom-0 z-10 flex w-full justify-center bg-primary py-10 text-amber-600">
+      <div className="sticky bottom-0 left-0 z-10 flex w-full justify-center bg-primary py-10 text-amber-600">
         <span className="text-xs">
           <span className="font-semibold">Ratama Adhi</span> ©{' '}
           {new Date().getFullYear()}
