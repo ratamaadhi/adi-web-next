@@ -59,7 +59,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
 
   useEffect(() => {
     const baseClasses =
-      'sticky left-0 top-0 z-20 flex w-full items-center justify-between px-4 text-secondary transition-all duration-300 ease-in-out 2xl:container md:px-20 2xl:mx-auto';
+      'sticky left-0 top-0 z-20 flex w-full items-center justify-between px-4 text-foreground transition-all duration-300 ease-in-out 2xl:container md:px-20 2xl:mx-auto';
     const dynamicClasses = `${scroll ? 'glassmorph h-20' : 'h-28'} ${
       toggleNav && windowWidth < 1024 && 'glassmorph'
     }`;
@@ -73,7 +73,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
           variants={variant}
           animate="animate"
           initial="initial"
-          className="h-8 w-auto cursor-pointer text-2xl font-bold blur-none"
+          className=" h-8 w-auto cursor-pointer text-2xl font-bold blur-none"
         >
           RA.
         </motion.div>
@@ -93,8 +93,8 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
               className={`${
                 path === '/projects'
                   ? 'font-medium text-amber-600'
-                  : 'text-secondary'
-              } cursor-pointer text-base font-medium transition-all duration-300 ease-in-out hover:text-amber-600`}
+                  : 'text-foreground'
+              }  cursor-pointer text-base font-medium transition-all duration-300 ease-in-out hover:text-amber-600`}
             >
               Projects
             </div>
@@ -109,7 +109,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
               className={`${
                 path === '/about'
                   ? 'font-medium text-amber-600'
-                  : 'text-secondary'
+                  : 'text-foreground'
               } cursor-pointer text-base font-medium transition-all duration-300 ease-in-out hover:text-amber-600`}
             >
               About
@@ -123,7 +123,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
           href={cv}
           target="_blank"
         >
-          <div className="cursor-pointer rounded-md border border-secondary px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out">
+          <div className="cursor-pointer rounded-md border text-secondary border-secondary px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out">
             Download CV
           </div>
         </motion.a>
@@ -134,7 +134,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         >
           <div
             onClick={() => setShowModal(!showModal)}
-            className="cursor-pointer rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out"
+            className="cursor-pointer rounded-md bg-linear-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 text-base font-medium transition-all duration-300 ease-in-out"
           >
             Contact Me
           </div>
@@ -148,7 +148,7 @@ function TopNav({ toggleNav, setToggleNav = () => {} }) {
         </motion.div> */}
       </motion.div>
       <div
-        className="block py-4 pl-4 text-2xl text-secondary blur-none lg:hidden"
+        className="block py-4 pl-4 text-2xl text-foreground blur-none lg:hidden"
         onClick={() => setToggleNav(!toggleNav)}
       >
         {toggleNav ? <HiOutlineX /> : <HiOutlineMenuAlt2 />}

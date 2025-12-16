@@ -89,13 +89,12 @@ function HeroSec() {
         animate="animate"
         // transition={{duration: 3}}
         exit="initial"
-        className="relative col-start-1 col-end-7 row-start-4 my-8 h-fit w-full bg-amber-700 grayscale-[110%] transition delay-100 duration-300 hover:grayscale-0 sm:col-start-5 sm:col-end-9 sm:row-start-3 md:col-start-7 md:col-end-13 md:my-0 lg:col-start-8 lg:row-start-1 lg:row-end-5 xl:col-start-9"
+        className="relative col-start-1 col-end-7 row-start-4 my-8 h-fit w-full bg-amber-700 grayscale-110 transition delay-100 duration-300 hover:grayscale-0 sm:col-start-5 sm:col-end-9 sm:row-start-3 md:col-start-7 md:col-end-13 md:my-0 lg:col-start-8 lg:row-start-1 lg:row-end-5 xl:col-start-9"
       >
         <Image
           loader={myLoader}
           src="/hero-image.png"
           alt="ratama adhi"
-          layout="responsive"
           width={311}
           height={414}
           placeholder="blur"

@@ -117,7 +117,7 @@ function CVDownloadButton({ cv, variant }) {
       className="flex h-20 items-center justify-center"
     >
       <a
-        className="cursor-pointer rounded-md border border-secondary bg-gradient-to-br px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
+        className="cursor-pointer rounded-md border border-secondary bg-linear-to-br px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
         href={cv}
         rel="noreferrer"
         target="_blank"
@@ -135,7 +135,7 @@ function ContactMeButton({ openModal, variant }) {
       className="flex h-20 items-center justify-center"
     >
       <div
-        className="cursor-pointer rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
+        className="cursor-pointer rounded-md bg-linear-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 font-semibold transition-all duration-100 ease-in-out hover:text-2xl"
         onClick={openModal}
       >
         Contact Me

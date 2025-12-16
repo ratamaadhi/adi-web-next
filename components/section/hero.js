@@ -43,7 +43,7 @@ function Hero() {
   return (
     <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-center px-8 pb-16 pt-8 2xl:container md:px-20 lg:flex-row 2xl:mx-auto 2xl:min-h-full">
       <div className="flex h-full w-full justify-between">
-        <div className="relative flex w-full flex-col items-center justify-center text-secondary lg:w-2/3">
+        <div className="relative flex w-full flex-col items-center justify-center lg:w-2/3 text-foreground">
           <Blob />
           <motion.div
             variants={variant}
@@ -54,25 +54,25 @@ function Hero() {
           >
             <motion.h1
               variants={variant}
-              className="text-6xl font-semibold sm:text-7xl"
+              className=" text-6xl font-semibold sm:text-7xl"
             >
               Ratama Adhi
             </motion.h1>
             <motion.p
               variants={variant}
-              className="pl-2 text-base font-light leading-9 tracking-wider sm:text-2xl sm:font-extralight"
+              className=" pl-2 text-base font-light leading-9 tracking-wider sm:text-2xl sm:font-extralight"
             >
               a front-end developer
             </motion.p>
             <motion.h1
               variants={variant}
-              className="mt-10 text-3xl font-medium italic sm:text-5xl lg:mt-14"
+              className=" mt-10 text-3xl font-medium italic sm:text-5xl lg:mt-14"
             >
               &quot; Less is better &quot;
             </motion.h1>
             <motion.p
               variants={variant}
-              className="pl-2 text-sm font-normal leading-9 tracking-wider sm:text-lg sm:font-light"
+              className=" pl-2 text-sm font-normal leading-9 tracking-wider sm:text-lg sm:font-light"
             >
               - Minimalism
             </motion.p>

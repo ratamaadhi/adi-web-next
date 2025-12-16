@@ -7,18 +7,20 @@
 - **Lint**: `yarn lint`
 - **Format**: `yarn prettier`
 - **Test**: No test framework configured
+- **Commit**: `yarn commit` (uses commitizen with conventional commits)
 
 ## Code Style Guidelines
 
-### Imports
+### Imports & Aliases
 
-- Use ES6 imports/exports
+- Use ES6 imports/exports with path aliases: `@/components/*`, `@/lib/*`, `@/utils/*`
 - React imports first, then third-party, then local imports
 - Example: `import React, { useState } from 'react';`
 
-### Formatting
+### Formatting & Types
 
-- Use Prettier config: single quotes, trailing comma ES5, 2 spaces, semicolons
+- Prettier: single quotes, trailing comma ES5, 2 spaces, semicolons
+- TypeScript enabled but strict mode disabled (`strict: false`)
 - ESLint extends Next.js, React, and Prettier rules
 
 ### Naming Conventions
@@ -35,13 +37,6 @@
 
 ### React Patterns
 
-- Use functional components with hooks
-- Prefer `useState` and `useEffect`
-- Use Redux for global state management
-- Apollo Client for GraphQL data fetching
-
-### Styling
-
-- Tailwind CSS for styling
-- Custom CSS classes in `global.css` for utilities like `.glassmorph`
-- Use className prop consistently
+- Functional components with hooks only
+- Redux for global state, Apollo Client for GraphQL
+- Tailwind CSS for styling with shadcn/ui components

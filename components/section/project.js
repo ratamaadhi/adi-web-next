@@ -9,6 +9,7 @@ import useFetch from '../../lib/hooks/useFetch';
 import MdFormat from '../../util/md';
 import { getStrapiMedia, myLoader } from '../../lib/media';
 import { shimmer, toBase64 } from '../../util/toBase64';
+import { Badge } from '../ui/badge';
 
 function Project({ slug, dataFallback = {} }) {
   const pageRoute = useRouter();
@@ -22,11 +23,11 @@ function Project({ slug, dataFallback = {} }) {
   const dataProject = !error ? selectedProject : dataFallback;
 
   return (
-    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-primary px-4 pb-16 pt-8 2xl:container md:px-20 2xl:mx-auto">
+    <div className="relative flex min-h-[calc(100vh-112px)] w-full flex-col items-center justify-between bg-background px-4 pb-16 pt-8 2xl:container md:px-20 2xl:mx-auto">
       <div className="flex w-full items-center justify-start space-x-6 md:mx-auto md:w-8/12">
         <div
           onClick={() => pageRoute.back()}
-          className="cursor-pointer rounded-lg bg-secondary p-1 text-primary transition-all duration-300 ease-in-out hover:scale-110"
+          className="cursor-pointer rounded-lg bg-secondary p-1 text-secondary-foreground transition-all duration-300 ease-in-out hover:scale-110"
         >
           <RiArrowLeftSLine size={26} />
         </div>
@@ -47,10 +48,10 @@ function Project({ slug, dataFallback = {} }) {
           })}
         </div>
       </div>
-      <div className="flex w-full flex-col items-center bg-primary pt-6 md:mx-auto md:w-8/12">
+      <div className="flex w-full flex-col items-center bg-background pt-6 md:mx-auto md:w-8/12">
         <div className="mx-auto mb-2 flex h-auto w-full items-center justify-between text-secondary">
           <h2
-            className={`font-poppins text-4xl font-bold md:text-5xl lg:text-6xl ${
+            className={` text-4xl font-bold md:text-5xl lg:text-6xl ${
               isLoading && 'h-10 w-1/2 animate-pulse rounded-md bg-secondary/30'
             }`}
           >
@@ -59,7 +60,7 @@ function Project({ slug, dataFallback = {} }) {
         </div>
         <div className="mx-auto mb-4 flex h-auto w-full items-center justify-between text-secondary">
           <h3
-            className={`font-poppins text-sm font-light ${
+            className={` text-sm font-light ${
               isLoading && 'h-5 w-3/4 animate-pulse rounded-md bg-secondary/30'
             }`}
           >
@@ -77,7 +78,7 @@ function Project({ slug, dataFallback = {} }) {
                 loader={myLoader}
                 src={getStrapiMedia(dataProject?.thumbnail)}
                 alt={dataProject?.thumbnail?.hash}
-                layout="fill"
+                fill
                 placeholder="blur"
                 blurDataURL={`data:image/svg+xml;base64,${toBase64(
                   shimmer(
@@ -91,19 +92,20 @@ function Project({ slug, dataFallback = {} }) {
           </div>
         </div>
         <div
-          className={`mx-auto mb-6 flex h-auto w-full flex-wrap items-center justify-start border-b border-secondary/50 pb-3 md:pb-6 ${
+          className={`mx-auto mb-6 flex h-auto w-full flex-wrap items-center justify-start border-b border-secondary/50 pb-3 md:pb-6 gap-2 ${
             isLoading && 'h-3 animate-pulse rounded-md bg-secondary/30'
           }`}
         >
           {dataProject &&
             dataProject.technologies &&
             dataProject.technologies.map((tech) => (
-              <div
+              <Badge
                 key={tech.id}
-                className="mr-2 mt-2 flex items-center justify-center rounded-md bg-tertiary px-2 py-1 text-xss tracking-wide text-secondary sm:text-xs"
+                variant={'default'}
+                className="flex items-center justify-center bg-primary"
               >
                 {tech.name}
-              </div>
+              </Badge>
             ))}
         </div>
         <div className="markdown-container prose prose-sm mx-auto h-full w-full max-w-none text-secondary md:prose-lg">

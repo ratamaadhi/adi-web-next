@@ -13,7 +13,7 @@ function BioLinks({ about }) {
     return [3, 2].map((ar, i) => (
       <div
         key={i}
-        className={`relative flex w-full flex-col justify-center overflow-hidden rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 ${
+        className={`relative flex w-full flex-col justify-center overflow-hidden rounded-md bg-linear-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 ${
           ar && 'opacity-' + ar * 10 + ' animate-pulse'
         } shadow-lg shadow-indigo-800/10 `}
       >
@@ -24,12 +24,12 @@ function BioLinks({ about }) {
 
   const ProfileSection = () => (
     <>
-      <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-secondary bg-gradient-to-br from-amber-300 via-amber-700 to-indigo-700 shadow-lg">
+      <div className="relative h-24 w-24 overflow-hidden rounded-full border-4 border-secondary bg-linear-to-br from-amber-300 via-amber-700 to-indigo-700 shadow-lg">
         <Image
           loader={myLoader}
           src="/hero-image.png"
           alt="ratama adhi"
-          layout="fill"
+          fill
           placeholder="blur"
           blurDataURL={`data:image/svg+xml;base64,${toBase64(
             shimmer(144, 144)
@@ -53,7 +53,7 @@ function BioLinks({ about }) {
         className={`relative flex w-full cursor-pointer flex-col justify-center overflow-hidden rounded-md ${
           thumbnail
             ? 'border border-amber-600/30 shadow-lg shadow-indigo-800/10'
-            : ' bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 shadow-lg shadow-indigo-800/10'
+            : ' bg-linear-to-br from-amber-600 via-amber-800 to-indigo-900 shadow-lg shadow-indigo-800/10'
         } space-y-1 px-3 py-2`}
       >
         {thumbnail && (
@@ -62,12 +62,12 @@ function BioLinks({ about }) {
             <Image
               src={thumbnail.formats.thumbnail.url}
               alt="ratama adhi"
-              layout="fill"
+              fill
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
                 shimmer(144, 144)
               )}`}
-              className="z-10 object-cover blur-sm"
+              className="z-10 object-cover blur-xs"
             />
           </>
         )}
@@ -99,7 +99,7 @@ function BioLinks({ about }) {
         bioLinks.map((bio, i) => <BioLink key={i} bio={bio} />)}
 
       {!isLoading && bioLinks.length <= 0 && (
-        <div className="relative flex w-full flex-col justify-center overflow-hidden rounded-md bg-gradient-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 shadow-lg shadow-indigo-800/10">
+        <div className="relative flex w-full flex-col justify-center overflow-hidden rounded-md bg-linear-to-br from-amber-600 via-amber-800 to-indigo-900 px-3 py-2 shadow-lg shadow-indigo-800/10">
           <h1>Sayangnya tidak ada link</h1>
         </div>
       )}
@@ -108,13 +108,13 @@ function BioLinks({ about }) {
   );
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-primary font-poppins antialiased">
+    <div className="relative flex min-h-screen flex-col bg-background  antialiased">
       <Seo />
       <div className="relative mx-auto flex min-h-[calc(100vh-112px)] max-w-sm flex-col items-center p-8">
         <ProfileSection />
         <BioLinksList />
       </div>
-      <div className="sticky bottom-0 left-0 z-10 flex w-full justify-center bg-primary py-10 text-amber-600">
+      <div className="sticky bottom-0 left-0 z-10 flex w-full justify-center bg-background py-10 text-amber-600">
         <span className="text-xs">
           <span className="font-semibold">Ratama Adhi</span> ©{' '}
           {new Date().getFullYear()}
