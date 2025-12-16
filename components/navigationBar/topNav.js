@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useInnerWidth from '../../lib/hooks/useInnerWidth';
 import useScroll from '../../lib/hooks/useScroll';
-import Modal from '../modal/Modal';
+import Modal from '../modal/AppModal';
 import FormContactMe from '../form/FormContactMe';
 import { linkCV } from '../../util/const';
 import { fetchAPI } from '../../lib/api';
